@@ -102,7 +102,6 @@ main{padding:12px 16px 28px;max-width:1520px;margin:0 auto}
 .act .tag.reassure{color:var(--gold)}
 .act .tag.liquidity{color:var(--up)}
 .act .tag.regulator{color:var(--accent)}
-.act .tag.presenter{color:var(--gold)}
 .act time{color:var(--muted);font-size:11px;margin-left:4px}
 .act.new{animation:flashin 1.4s ease-out}
 @keyframes flashin{from{background:color-mix(in srgb,var(--gold) 22%,transparent)}to{background:transparent}}
@@ -222,14 +221,14 @@ main{padding:12px 16px 28px;max-width:1520px;margin:0 auto}
 /* engine badge, demo mode, shortcuts */
 .perf{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px;white-space:nowrap}
 .perf b{color:var(--up);font-weight:700}
-.presenter .perf{font-size:14px;padding:4px 12px}
+.perf{font-size:14px;padding:4px 12px}
 .demoflag{display:none;font-size:12px;font-weight:700;color:#1a1200;background:var(--gold);border-radius:4px;padding:3px 8px}
 .demo .demoflag{display:inline-block}
 .attract{position:absolute;left:50%;top:14px;transform:translateX(-50%);display:none;align-items:center;gap:10px;background:var(--panel);border:2px solid var(--gold);border-radius:999px;padding:8px 18px;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .attract b{color:var(--gold)}
 .demo .attract{display:flex;animation:breathe 2.4s ease-in-out infinite}
 @keyframes breathe{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--gold) 25%,transparent)}}
-.presenter .attract{font-size:17px}
+.attract{font-size:17px}
 .keyhint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--text);color:var(--bg);font-weight:700;border-radius:8px;padding:8px 14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
 .keyhint.show{opacity:1}
 .help{position:fixed;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 60%,transparent);z-index:60}
@@ -268,7 +267,6 @@ kbd{font:600 12px var(--ui);background:var(--panel2);border:1px solid var(--line
 .bkfeed .act{font-size:15px;padding:10px 0}
 .bkfeed .act b{font-size:16px}
 .bkfeed{max-height:340px;overflow:auto}
-.bk-back .track{height:20px;border-radius:10px}
 .bk-back .lab b{font-size:22px}
 .status.run{color:#fff;background:var(--red)}
 .status.saved{color:#1a1200;background:var(--gold)}
@@ -282,35 +280,34 @@ kbd{font:600 12px var(--ui);background:var(--panel2);border:1px solid var(--line
 .wi .px{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;font-size:14px}
 .wi .px small{font-weight:600}
 .wi canvas{grid-column:1/-1;width:100%;height:56px;display:block;margin-top:4px}
-.presenter .wi canvas{height:84px}
-.presenter .wi b,.presenter .wi .px{font-size:17px}
+.wi canvas{height:84px}
+.wi b,.wi .px{font-size:17px}
 
-/* presenter view (default): one story, big type */
-.presenter .ctr.op{display:none}
-.presenter .counters{grid-template-columns:repeat(2,1fr)}
-.presenter .ctr b{font-size:38px}
-.presenter .ctr span{font-size:14px}
-.presenter .crowd-grid{grid-template-columns:1fr}
-.presenter .railbox{display:none}
-.presenter .mapwrap{width:min(100%,calc((100vh - 400px)/0.62));min-width:min(100%,560px);margin:0 auto}
-.presenter .race .lab{font-size:14px}
-.presenter .race .lab b{font-size:22px}
-.presenter .track{height:18px;border-radius:9px}
-.presenter .ticker,.presenter #tickerTrack{height:42px}
-.presenter #tickerTrack span{font-size:17px}
-.presenter .foot{display:none}
-.presenter.running .chips{display:none}
-.presenter .rumor input{font-size:17px;padding:12px 14px}
-.presenter .opx{display:none}
-.presenter .sym b{font-size:28px}
-.presenter .last{font-size:42px}
-.presenter .chg{font-size:20px}
-.presenter .status{font-size:15px;padding:6px 12px}
-.presenter .stats{font-size:14px}
-.presenter .stats b{font-size:18px}
-.presenter .news{max-height:none}
-.presenter .news div{font-size:15px;padding:8px 0}
-.presenter .tabs [data-tab=banks]{display:none}
+/* three-beat layout: one story, big type */
+.ctr.op{display:none}
+.counters{grid-template-columns:repeat(2,1fr)}
+.ctr b{font-size:38px}
+.ctr span{font-size:14px}
+.crowd-grid{grid-template-columns:1fr}
+.railbox{display:none}
+.mapwrap{width:min(100%,calc((100vh - 400px)/0.62));min-width:min(100%,560px);margin:0 auto}
+.race .lab{font-size:14px}
+.race .lab b{font-size:22px}
+.track{height:18px;border-radius:9px}
+.ticker,#tickerTrack{height:42px}
+#tickerTrack span{font-size:17px}
+.foot{display:none}
+.running .chips{display:none}
+.rumor input{font-size:17px;padding:12px 14px}
+.opx{display:none}
+.sym b{font-size:28px}
+.last{font-size:42px}
+.chg{font-size:20px}
+.status{font-size:15px;padding:6px 12px}
+.stats{font-size:14px}
+.stats b{font-size:18px}
+.news{max-height:none}
+.news div{font-size:15px;padding:8px 0}
 /* UI-8: beats 2 and 3 have their own replay controls; the live engine's belong to beat 1 */
 body[data-screen=search] .clockbox .lead, body[data-screen=search] #clock, body[data-screen=search] .demoflag,
 body[data-screen=why] .clockbox .lead, body[data-screen=why] #clock, body[data-screen=why] .demoflag{display:none}
@@ -318,7 +315,7 @@ body[data-screen=why] .clockbox .lead, body[data-screen=why] #clock, body[data-s
 .tabs .beat{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:7px;border-radius:50%;background:var(--panel2);color:var(--muted);font:700 11px var(--ui)}
 .tabs button[aria-selected=true] .beat{background:var(--accent);color:#fff}
 .headline{padding:9px 22px;font:600 16px/1.35 var(--ui);color:var(--text);background:var(--panel);border-bottom:1px solid var(--line)}
-.presenter .headline{font-size:18px}
+.headline{font-size:18px}
 .headline .tag{font-weight:500;color:var(--muted);font-size:13px;margin-left:6px}
 .next{position:absolute;z-index:5}
 
@@ -370,8 +367,7 @@ body[data-screen=search] .clockbox .lead,body[data-screen=search] #clock{display
 @media (max-width:900px){.wh-grid{grid-template-columns:1fr}}
 #whyMore{margin-top:6px}
 #whyMore summary{cursor:pointer;color:var(--muted);padding:6px 0}
-.presenter .haltbanner{font-size:20px;padding:12px 22px}
-body:not(.presenter) .toasts{display:none}
+.haltbanner{font-size:20px;padding:12px 22px}
 .toasts{position:absolute;left:12px;bottom:12px;display:flex;flex-direction:column-reverse;gap:8px;max-width:min(400px,72%);pointer-events:none}
 .toast{background:var(--panel);border:1px solid var(--gold);border-left-width:5px;border-radius:8px;padding:9px 13px;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:toastin .35s ease-out}
 .toast.liquidity{border-color:var(--up)}
@@ -392,14 +388,14 @@ body:not(.presenter) .toasts{display:none}
   .hint{white-space:normal;width:92%;justify-content:space-between;font-size:13px;top:8px}
   .clockbox{margin-left:0;width:100%;justify-content:space-between}
   .perf .dev{display:none}
-  .attract{white-space:normal;width:90%;font-size:13px;justify-content:center}
+  .attract{white-space:normal;width:90%;justify-content:center}
   #clock{text-align:left;min-width:0}
   main{padding:10px}
   .counters{grid-template-columns:repeat(2,1fr)}
   .crowd-grid,.mkt-grid,.recap-grid{grid-template-columns:1fr}
   .rail{position:static}
-  .presenter .ctr b{font-size:28px}
-  .presenter .last{font-size:32px}
+  .ctr b{font-size:28px}
+  .last{font-size:32px}
   .toasts{left:8px;bottom:8px}
   .toast b{font-size:14px}
   .race{grid-template-columns:1fr}
@@ -418,7 +414,7 @@ body:not(.presenter) .toasts{display:none}
 }
 </style>
 </head>
-<body class="presenter">
+<body>
 <header class="top">
   <div class="brand">STAMPEDE<small>Copperleaf Bank, Port Calder</small></div>
   <nav class="tabs" role="tablist" aria-label="Screens">
@@ -437,7 +433,6 @@ body:not(.presenter) .toasts{display:none}
       <button aria-pressed="false" data-s="1">1×</button><button aria-pressed="true" data-s="2">2×</button><button aria-pressed="false" data-s="4">4×</button><button aria-pressed="false" data-s="8">8×</button>
     </div>
     <button class="btn" id="reset">Reset run</button></span>
-    <button class="btn" id="viewBtn" aria-pressed="false" title="Switch between the presenter view and the full operator view">Operator view</button>
   </div>
 </header>
 <div class="headline" id="headline" aria-live="polite">Can Copperleaf survive a bank run? Compare its responses across many versions of the day.</div>
@@ -510,7 +505,7 @@ body:not(.presenter) .toasts{display:none}
       <span><i style="background:#e8b44a"></i>best plan that day</span><span>≈ calculated from saved runs</span>
     </div>
     <button class="btn primary next" data-goto="why">Next: what helps</button>
-    <div class="wall-actions"><span id="wallRunStatus"></span><button class="btn opx" id="wallRun" title="Operator only: resimulates every plan (hours) when the inputs changed, then ranks again">Run the search</button><span class="wall-clock num" id="wallTime">Day 1, 9:30 AM</span><button class="btn primary" id="wallPause" aria-pressed="false" disabled>Play</button><button class="btn" id="wallReplay" disabled>Reset</button><div class="seg" id="wallSpeed" role="group" aria-label="Saved replay speed"><button data-wall-speed="1" aria-pressed="true">1×</button><button data-wall-speed="2" aria-pressed="false">2×</button><button data-wall-speed="4" aria-pressed="false">4×</button></div></div>
+    <div class="wall-actions"><span id="wallRunStatus"></span><button class="btn opx" id="wallRun" title="Resimulates every plan (hours) when the inputs changed, then ranks again">Run the search</button><span class="wall-clock num" id="wallTime">Day 1, 9:30 AM</span><button class="btn primary" id="wallPause" aria-pressed="false" disabled>Play</button><button class="btn" id="wallReplay" disabled>Reset</button><div class="seg" id="wallSpeed" role="group" aria-label="Saved replay speed"><button data-wall-speed="1" aria-pressed="true">1×</button><button data-wall-speed="2" aria-pressed="false">2×</button><button data-wall-speed="4" aria-pressed="false">4×</button></div></div>
   </div>
 </section>
 <section class="tab" id="tab-why" role="tabpanel" style="padding:18px 22px;max-width:1280px;margin:0 auto">
@@ -540,7 +535,7 @@ body:not(.presenter) .toasts{display:none}
 </section>
 <div class="keyhint" id="keyhint" role="status"></div>
 <div class="help" id="help" hidden><div class="card">
-  <h2>Operator shortcuts</h2>
+  <h2>Keyboard shortcuts</h2>
   <dl class="kv keys">
     <dt><kbd>Space</kbd></dt><dd>Pause or play</dd>
     <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>Speed 1×, 2×, 4×, 8×</dd>
@@ -549,11 +544,10 @@ body:not(.presenter) .toasts{display:none}
     <dt><kbd>R</kbd> <kbd>R</kbd></dt><dd>Reset the run (press twice)</dd>
     <dt><kbd>E</kbd></dt><dd>End the run and show the recap</dd>
     <dt><kbd>D</kbd></dt><dd>Start the demo run now</dd>
-    <dt><kbd>J</kbd></dt><dd>Presenter or operator view</dd>
     <dt><kbd>M</kbd> <kbd>P</kbd> <kbd>W</kbd> <kbd>C</kbd></dt><dd>1 A rumor hits, 2 The engine tries the plans, 3 What helps, Recap</dd>
     <dt><kbd>?</kbd></dt><dd>Show or hide this list</dd>
   </dl>
-  <p>Shortcuts work on the main screen. On a screen opened on its own (<code>?screen=</code>) only <kbd>J</kbd> and <kbd>?</kbd> work. During a demo run, any key or tap stops the demo first. The demo starts by itself after a minute with no input when no run is live (change with <kbd>?idle=</kbd> seconds in the address).</p>
+  <p>Shortcuts work on the main screen. On a screen opened on its own (<code>?screen=</code>) only <kbd>?</kbd> works. During a demo run, any key or tap stops the demo first. The demo starts by itself after a minute with no input when no run is live (change with <kbd>?idle=</kbd> seconds in the address).</p>
 </div></div>
 <div class="waiting">Waiting for the main screen. Open it in another window on this computer.</div>
 </main>
@@ -885,7 +879,7 @@ function endRun(outcome) {
   const s = sim; if (s.over) return; s.over = true; s.outcome = outcome;
   if (outcome === 'failed') { logEvent('fail', `Copperleaf ran out of cash with ${fmtUSD(s.queue)} in unpaid requests`, { bad: true });
     headline('Regulators close Copperleaf Bank; FDIC named receiver', 'bad', 0, false); }
-  else if (outcome === 'stopped') logEvent('stop', 'Run stopped by the operator');
+  else if (outcome === 'stopped') logEvent('stop', 'Run stopped');
   else { logEvent('close', `Reached the 4:00 PM close with ${fmtUSD(s.cash)} on hand`, { good: true });
     headline(`Copperleaf reaches the closing bell with ${fmtUSD(s.cash)} on hand`, 'good', 0, false); }
   emit('event', { type: 'over', t: s.t, outcome });
@@ -910,7 +904,7 @@ function seedRumor(r, x, y) {
     s.conf = Math.min(100, s.conf + 10 * r.str + 5);
     s.rumors.push({ ...r, t: s.t, x, y, d });
     logEvent('calm', r.text, { district: dn, good: true });
-    crisisCard('presenter', 'Calming rumor', `“${r.text}” Released in ${dn}. Backstop progress +${Math.round(10 * r.str + 5)}%.`);
+    crisisCard('reassure', 'Calming rumor', `“${r.text}” Released in ${dn}. Backstop progress +${Math.round(10 * r.str + 5)}%.`);
     headline(`Report: “${r.text}”`, 'good', 0, false);
     launchWave(x, y, r.str, 0.012);
   }
@@ -1002,7 +996,6 @@ function initGL() {
   const ls = gl.getAttribLocation(p, 'a_s'); gl.enableVertexAttribArray(ls); gl.vertexAttribPointer(ls, 1, gl.UNSIGNED_BYTE, false, 0, 0);
   glp = { p, vao, sb, u: { h: gl.getUniformLocation(p, 'u_h'), size: gl.getUniformLocation(p, 'u_size'), pass: gl.getUniformLocation(p, 'u_pass'), c: gl.getUniformLocation(p, 'u_c') } };
 }
-const PRESENTER = () => document.body.classList.contains('presenter');
 try { if (!FOLLOWER) initGL(); } catch (e) { console.error(e); gl = null; $('#mapnote').textContent = 'Could not start WebGL, so depositor dots are hidden.'; }
 let glDirty = true;
 function drawGL() {
@@ -1044,7 +1037,7 @@ function spawnPings() {
 function drawFx(now, frac) {
   fit(fxCv); const ctx = fxCv.getContext('2d'), dpr = DPR(), W = fxCv.width / dpr, S = W;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, fxCv.height / dpr);
-  const JS = PRESENTER() ? (W < 520 ? 1.1 : 1.4) : 1;
+  const JS = W < 520 ? 1.1 : 1.4;
   const P = (x, y) => [x * S, y * S];
   // cure waves (from sim, interpolated between ticks)
   for (const w of sim.waves) { if (!w.active) continue;
@@ -1113,7 +1106,7 @@ mapwrap.addEventListener('click', e => {
     seedRumor(p, x, y); return; }
   let best = -1, bd = 1e9; sim.vips.forEach((v, k) => { const dd = Math.hypot(v.x - x, v.y - y); if (dd < bd) { bd = dd; best = k; } });
   const px = e.clientX - r.left, py = e.clientY - r.top;
-  if (bd * r.width < 16 * (PRESENTER() ? 1.4 : 1)) { selVip = best; selDist = -1; renderVips(); renderDist(); showPop(px, py, r); return; }
+  if (bd * r.width < 16 * 1.4) { selVip = best; selDist = -1; renderVips(); renderDist(); showPop(px, py, r); return; }
   const d = idAt(x, y); selDist = d < ND ? d : -1; selVip = -1; renderVips(); renderDist(); showPop(px, py, r);
 });
 $('#anywhere').onclick = e => { e.stopPropagation(); if (!picking) return; const p = picking; picking = null; mapwrap.classList.remove('picking'); $('#hint').classList.remove('show');
@@ -1122,7 +1115,7 @@ $('#anywhere').onclick = e => { e.stopPropagation(); if (!picking) return; const
 let popT = 0;
 function showPop(px, py, r) {
   const pop = $('#pop'); clearTimeout(popT);
-  if (!PRESENTER() || (selDist < 0 && selVip < 0)) { pop.classList.remove('show'); return; }
+  if (selDist < 0 && selVip < 0) { pop.classList.remove('show'); return; }
   if (selVip >= 0) { const v = sim.vips[selVip];
     pop.innerHTML = `<h4>${esc(v.name)}</h4><dl class="kv"><dt>${esc(v.kind)}</dt><dd>${DIST[v.d].name}</dd><dt>Balance</dt><dd>${fmtUSD(v.bal)}</dd><dt>Now</dt><dd>${v.st === 2 ? 'Withdrew at ' + fmtTime(v.outAt) : v.st === 3 ? 'Came back' : 'Staying'}</dd></dl>`; }
   else { const d = selDist, c = DIST[d], dc = sim.dc;
@@ -1179,7 +1172,7 @@ function renderVips() {
 }
 on('event', e => {
   if (e.type !== 'crisis') return;
-  const tagName = { reassure: 'Reassurance', liquidity: 'Liquidity', regulator: 'Regulator', presenter: 'Presenter' }[e.tag];
+  const tagName = { reassure: 'Reassurance', liquidity: 'Liquidity', regulator: 'Regulator' }[e.tag];
   for (const f of [$('#crisis')]) { if (f.querySelector('.empty')) f.innerHTML = '';
     f.insertAdjacentHTML('afterbegin', `<div class="act new"><span class="tag ${e.tag}">${tagName}</span><b>${esc(e.title)}</b><time>${fmtTime(e.t)}</time><div>${esc(e.body)}</div></div>`); }
   if (e.live !== false) toast(e.tag, e.title, e.body);
@@ -1364,17 +1357,6 @@ $$('.tabs button').forEach(b => b.onclick = () => selectTab(b.dataset.tab));
 $$('[data-goto]').forEach(b => b.onclick = () => selectTab(b.dataset.goto));
 selectTab(active);
 
-/* presenter view is the default; ?view=operator starts in the full layout */
-function setView(presenter) {
-  body.classList.toggle('presenter', presenter);
-  const vb = $('#viewBtn'); vb.textContent = presenter ? 'Operator view' : 'Presenter view'; vb.setAttribute('aria-pressed', !presenter);
-  if (presenter && active === 'banks') selectTab('crowd');
-  const l = $('#recapLog'); l.hidden = presenter; $('#logBtn').textContent = presenter ? 'Show all events' : 'Hide events';
-  if (!presenter) $('#pop').classList.remove('show');
-  baseAt = 0; if (sim.over) drawRecap();
-}
-$('#viewBtn').onclick = () => setView(!body.classList.contains('presenter'));
-setView(qs.get('view') !== 'operator');
 
 /* controls (main screen only) */
 $('#play').onclick = e => { playing = !playing; e.target.textContent = playing ? 'Pause' : 'Play'; e.target.setAttribute('aria-pressed', playing); };
@@ -1452,8 +1434,7 @@ function renderPerf() {
   const p = FOLLOWER ? remotePerf : perfNow(); if (!p) { perfEl.textContent = ''; return; }
   const rate = p.msPerTick ? `${p.msPerTick.toFixed(1)} ms per tick · ` : ENGINE ? '' : 'ready · ';
   perfEl.title = `${fmtInt(p.agents)} ${ENGINE ? 'depositors' : 'agents'} · ${rate}${p.device}`;
-  if (PRESENTER()) { perfEl.innerHTML = `<b>${fmtInt(p.agents)}</b> simulated ${ENGINE ? 'customers' : 'agents'}`; return; }
-  perfEl.innerHTML = `<b>${fmtInt(p.agents)}</b> ${ENGINE ? 'depositors' : 'agents'} · ${rate}<span class="dev">${esc(p.device)}</span>`;
+  perfEl.innerHTML = `<b>${fmtInt(p.agents)}</b> simulated ${ENGINE ? 'customers' : 'agents'}`;   // timing and device stay in the tooltip
 }
 
 /* ---- attract mode: after a minute with no input, and no live run, loop a demo run ---- */
@@ -1494,7 +1475,7 @@ if (!FOLLOWER) {
   addEventListener('pointerdown', userInput, true); addEventListener('keydown', userInput, true); addEventListener('input', () => lastInput = performance.now(), true);
 }
 
-/* ---- operator shortcuts ---- */
+/* ---- keyboard shortcuts ---- */
 let hintT = 0, rAt = 0;
 function hint(text) { const h = $('#keyhint'); h.textContent = text; h.classList.add('show'); clearTimeout(hintT); hintT = setTimeout(() => h.classList.remove('show'), 1400); }
 const TABKEYS = { m: 'crowd', p: 'search', w: 'why', c: 'recap' };   // UI-5: the three beats, then the recap
@@ -1509,7 +1490,6 @@ addEventListener('keydown', e => {
   }
   if (typing) return;
   if (k === '?') { $('#help').hidden = !$('#help').hidden; e.preventDefault(); return; }
-  if (lk === 'j') { setView(!body.classList.contains('presenter')); hint(body.classList.contains('presenter') ? 'Presenter view' : 'Operator view'); return; }
   if (FOLLOWER) return;
   if (active === 'search') {
     if (k === ' ') { e.preventDefault(); wallToggle(); return; }
@@ -1707,7 +1687,7 @@ introText();
 /* badge (fitted or scenario) and the limits screen */
 const badge = document.createElement('span'); badge.id = 'runBadge';
 badge.style.cssText = 'font:600 12px var(--ui);padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap';
-$('#viewBtn').before(badge);
+$('.clockbox').append(badge);
 function renderBadge(run) {
   const txt = !ENGINE ? 'MOCK · browser simulation, not the engine' : eng.ok === false ? 'Engine offline' : run ? run.badge : '';
   const fitted = ENGINE && eng.ok !== false && run && run.kind === 'fitted', warn = !ENGINE || eng.ok === false;
@@ -1717,7 +1697,7 @@ function renderBadge(run) {
 }
 renderBadge(null);
 const limBtn = document.createElement('button'); limBtn.className = 'btn'; limBtn.id = 'limitsBtn'; limBtn.textContent = 'About the model';
-$('#viewBtn').before(limBtn);
+$('.clockbox').append(limBtn);
 const limBox = document.createElement('div'); limBox.id = 'limits';
 // display, not the hidden attribute: an inline display would override [hidden] and block clicks underneath
 limBox.style.cssText = 'position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.55);display:none;place-items:center;padding:20px';
@@ -2006,7 +1986,7 @@ function bindCards() {
     b.addEventListener('focus', () => showCard(name, b, false));
     b.addEventListener('blur', () => { if (!cardBox.dataset.pinned) hideCard(); });
     b.addEventListener('pointerdown', e => { b._touch = e.pointerType === 'touch'; });
-    b.onclick = () => {   // UI-4: a click or tap pins the card; responses are the engine's choice, not the presenter's
+    b.onclick = () => {   // UI-4: a click or tap pins the card; responses are the engine's choice, not the viewer's
       if (cardBox.dataset.pinned && cardBox.dataset.name === name) { hideCard(); return; }
       showCard(name, b, true);
     };
@@ -2059,7 +2039,7 @@ function wallLoad() {
   }).catch(() => { if (seq === wall.loadSeq) wallMsg.textContent = 'Connect to the demo server to view saved results.'; })
     .finally(() => { if (seq === wall.loadSeq) { wall.loading = false; wall.dirty = true; syncWallControls(); } });
 }
-/* UI-4: the presenter chooses how many runs per plan to include (the first N of the runs made before the demo).
+/* UI-4: the viewer chooses how many runs per plan to include (the first N of the runs made before the demo).
    Every search window follows the choice (BroadcastChannel), so the wall and the Why page always agree. */
 const runsChan = 'BroadcastChannel' in window ? new BroadcastChannel('stampede-runs') : null;
 function chooseRuns(n, fromOther) {
@@ -2570,7 +2550,7 @@ function pipePoll() {
   }).catch(() => {});
 }
 $('#wallRun').onclick = () => {
-  // VF-5: one press replaced the saved runs overnight on Nov 6-7; make it a deliberate operator action
+  // VF-5: one press replaced the saved runs overnight on Nov 6-7; make it a deliberate action
   if (!confirm('Run the whole search again? When the inputs changed this resimulates every plan for hours and replaces the saved runs. For a demo, the saved runs are enough.')) return;
   $('#wallRun').disabled = true; $('#wallRunStatus').textContent = 'Starting the search…';
   fetch('/api/pipeline/run', { method: 'POST' }).then(r => r.json()).then(r => {
@@ -2659,7 +2639,7 @@ function fundingExplanation(p) {
 function renderWhy() {
   const D = wall.data, box = $('#whyBody'); renderHeadline();
   if (!D) { box.innerHTML = '<p class="empty">No saved plan results available.</p>'; return; }
-  const more = `<details id="whyMore"${PRESENTER() ? '' : ' open'}><summary>Full comparison and ranking rules (${D.plans.length} plans)</summary>
+  const more = `<details id="whyMore"><summary>Full comparison and ranking rules (${D.plans.length} plans)</summary>
     <p><span id="whySort"><button class="btn" data-sort="rank" aria-pressed="${whySort === 'rank'}">By result</button> <button class="btn" data-sort="order" aria-pressed="${whySort === 'order'}">By when knocked out</button></span></p>${whyDetails(D)}</details>`;
   if (D.mode !== 'useful' || !D.byPlan[D.pick]) { box.innerHTML = '<div class="wh-card"><h3>No validated useful plan in these results</h3><p>Review the evidence before choosing a response.</p></div>' + unverifiedPlans(D) + more; bindWhy(D); return; }
   const top = D.byPlan[D.pick], { counts, of } = knockCounts(D);

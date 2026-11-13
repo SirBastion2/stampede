@@ -128,7 +128,7 @@ def main(argv: list[str] | None = None) -> int:
             page.goto(base + "/ui"); page.wait_for_timeout(2500)
             reset(page); page.reload(); page.wait_for_timeout(3500)
             tabs = page.eval_on_selector_all(".tabs button", "bs => bs.filter(b => getComputedStyle(b).display !== 'none').map(b => b.textContent.trim())")
-            check("presenter view shows the three beats only", tabs == ["1A rumor hits", "2The engine tries the plans", "3What helps"], tabs)
+            check("the nav shows the three beats only", tabs == ["1A rumor hits", "2The engine tries the plans", "3What helps"], tabs)
             check("beat 1 headline is the neutral sentence", head() == NEUTRAL, head()[:90])
             page.evaluate("window.scrollTo(0,0)"); page.screenshot(path=str(out / "beat1_start.png"))
 

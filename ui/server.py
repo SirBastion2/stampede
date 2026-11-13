@@ -281,7 +281,7 @@ async def ui_state(price_since: int = 0, event_since: int = 0) -> dict[str, Any]
 
 @app.get("/ui")
 async def ui_page():
-    """UI-1: the four-screen UI (?screen=main|bank|stocks|recap), served from the same origin."""
+    """The three-beat UI (a rumor hits, the engine tries the plans, what helps), served from the same origin."""
     from pathlib import Path
 
     from fastapi.responses import HTMLResponse

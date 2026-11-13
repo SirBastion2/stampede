@@ -1,5 +1,5 @@
 """VF-5: named tipping strengths that only simulate the missing (strength, version of the day) runs, and a
-"Run the search" button that is operator-only and asks first."""
+"Run the search" button that is hidden from the three-beat UI and asks first."""
 
 from __future__ import annotations
 
@@ -67,11 +67,12 @@ def test_named_strengths_replace_the_suggestion(tmp_path: Path, monkeypatch: pyt
     assert got == [([0.26, 0.27, 0.28, 0.29], 50)]
 
 
-def test_run_the_search_is_operator_only_and_asks_first() -> None:
+def test_run_the_search_is_hidden_and_asks_first() -> None:
     html = Path("ui/live/stampede_ui.html").read_text(encoding="utf-8")
     assert 'class="btn opx" id="wallRun"' in html
     assert "if (!confirm('Run the whole search again?" in html
-    assert ".presenter .opx{display:none}" in html
+    assert ".opx{display:none}" in html
+    assert "presenter" not in html and 'id="viewBtn"' not in html
 
 
 def test_the_early_warning_is_gone_once_the_day_is_over() -> None:

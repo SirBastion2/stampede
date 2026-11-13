@@ -1,4 +1,4 @@
-"""Render the presenter view's three beats against saved results, with all writes blocked.
+"""Render the three beats against saved results, with all writes blocked.
 
 Checks data-derived wording, details access, absent-result states, and live-plan
 request wiring (intercepted, never sent). Requires Playwright and Chromium.

@@ -13,7 +13,7 @@ def _html() -> str:
     return PAGE.read_text(encoding="utf-8")
 
 
-def test_the_nav_is_three_beats_with_recap_and_peers_for_the_operator_only() -> None:
+def test_the_nav_is_three_beats_with_recap_and_peers_hidden() -> None:
     nav = re.search(r'<nav class="tabs"[^>]*>(.*?)</nav>', _html(), re.S).group(1)
     tabs = [(t, 'class="opx"' in attrs, re.sub(r"<[^>]+>", "", label))
             for t, attrs, label in re.findall(r'<button role="tab" data-tab="(\w+)"([^>]*)>(.*?)</button>', nav)]

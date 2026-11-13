@@ -17,7 +17,15 @@ calibration/diagnostics/*/
 # batch table output (scripts/batch_table.py)
 data/live_batch.json
 # runtime data, caches, secrets, weights
-data/
+data/*
+# ...except the saved response-search results the UI's beats 2 and 3 read
+# (ui/live/search.py: data/live_search.json and its _10/_25/_50 option files)
+# and the VF-1 GPU/CPU parity record cited in the README
+!data/live_search.json
+!data/live_search_10.json
+!data/live_search_25.json
+!data/live_search_50.json
+!data/gpu_parity_vf1.json
 data.before_*/
 calibration/runs/
 validation_logs/
