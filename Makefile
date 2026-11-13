@@ -4,7 +4,7 @@
 CI_BASE ?= origin/main
 
 setup:
-	python3 -m pip install -e ".[dev]"
+	python3 -m pip install -e ".[dev,server]"
 
 lint:
 	python3 -m ruff check .

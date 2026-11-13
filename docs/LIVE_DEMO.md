@@ -22,7 +22,7 @@ make ui-build   # = (cd ui/market && npm ci) && (cd ui/crowd && npm ci && npm ru
 - Demo page (crowd and market together): `http://127.0.0.1:5173` (set `VITE_CROWD_FAKE=0` in `run_live.sh` for live frames)
 - Market UI alone: `http://127.0.0.1:5174` (omit `?fake=1` for live)
 
-## Two-minute table demo
+## Two-minute walkthrough
 
 Kestrel Bank is fictional. This is a rehearsal tool for bank risk teams and supervisors.
 

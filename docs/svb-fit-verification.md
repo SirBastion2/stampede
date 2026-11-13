@@ -1,6 +1,6 @@
 # SVB fit verification (SVB-10 / SVB-23)
 
-**Status at main `b878638`:** the persisted fit below was made **before SVB-28** (decide once) and **before SVB-29** (trading-day non-bank clock). Both change the dynamics or the loss, so both fits must be redone. §7 has the order. Earlier sections stay as the record of how we got here.
+**Current fit: §8.** This file is the development log of the calibration, in order. §1–§7 record earlier fits and the fixes between them (the `SVB-nn` labels are internal change IDs); the fit the README reports, and the one persisted in `params/registry.csv`, is the one in §8. The §1 timings are the per-generation benchmark the README cites.
 
 All runs: RTX 3060 12 GB, Linux.
 

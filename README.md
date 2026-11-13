@@ -23,7 +23,7 @@ All runs on an RTX 3060 12 GB under Linux unless noted.
 | One CMA-ES generation (12 candidates × 8 seeds = 96 simulations of 100,000 depositors, 460 ticks) | **13.8 s on the batched CuPy path, down from about 180 s (about 13×)** |
 | GPU vs. NumPy reference, 21 (plan, seed) days of 1,441 minutes | **21/21 agree**: same outcome, every response fires within 1 minute, worst end-of-day gap 0.0036 percentage points of deposits. 361 s on the GPU vs. 1,099 s for the 2-worker CPU reference (about 3× wall clock, 6.1× per worker) |
 | Winning plan (default 50-day window) | Bonds pledged in advance, then deposits from other banks once withdrawal requests reach 20% of deposits: open on 50 of 50 days, closest margin about $516M (0.3% of deposits), #1 in 5 of 7 changed-assumption tests |
-| Response search behind beats 2 and 3 | 321 plans considered, 31 simulated directly, 182 worked out from simulated runs, 111 withheld because their prediction depended on funding the engine had not simulated; 2,320 simulated days of 1,441 minutes; 12,043 s on 6 workers; 3 plans survive the filters |
+| Response search behind beats 2 and 3 | 321 plans considered: 28 simulated directly, 182 worked out from simulated runs, and 111 withheld because their prediction depended on funding the engine had not simulated (31 plans were simulated in all); 2,320 simulated days of 1,441 minutes; 12,043 s on 6 workers; 3 plans survive the filters |
 | Tests | CPU only (`STAMPEDE_OFFLINE=1`, no CUDA): 1,072 passed, 18 GPU tests skipped, 2 xfailed. RTX 3060: 1,056 passed with 2 known failures (see limitations) |
 
 The per-generation timing, tick profile and fit board are recorded in [`docs/svb-fit-verification.md`](docs/svb-fit-verification.md); the parity record is [`data/gpu_parity_vf1.json`](data/gpu_parity_vf1.json); the search results the UI reads are `data/live_search*.json`.
@@ -105,7 +105,7 @@ data/          saved search results the UI reads, and the GPU parity record
 docs/          ARCHITECTURE.md (full design), fit verification, screenshots
 ```
 
-Python 3.11+, NumPy, SciPy, CuPy (CUDA 12), Numba, `cma`, Pydantic v2, FastAPI + Uvicorn + WebSockets, React + TypeScript + Vite, pytest + Hypothesis. About 59,500 lines of Python, of which about 21,100 are tests. The full design is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Python 3.11+, NumPy, SciPy, CuPy (CUDA 12), Numba, `cma`, Pydantic v2, FastAPI + Uvicorn + WebSockets, React + TypeScript + Vite, pytest + Hypothesis. About 59,500 lines of Python, of which about 21,500 are tests. The full design is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Limitations
 

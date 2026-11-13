@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="data:,">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>STAMPEDE UI mockup</title>
+<title>STAMPEDE</title>
 <style>
 :root{
   color-scheme: light;
@@ -485,7 +486,7 @@ body[data-screen=search] .clockbox .lead,body[data-screen=search] #clock{display
   <div class="bank-grid" id="bankGrid"></div>
   <div class="netwrap">
     <h3>Interbank exposure</h3>
-    <p>Line width is funding exposure. Pulses show stress moving from Copperleaf to the banks it borrows from and lends to. In this mockup only Copperleaf is simulated; the others follow it with a delay.</p>
+    <p>Line width is funding exposure. Pulses show stress moving from Copperleaf to the banks it borrows from and lends to. Only Copperleaf is simulated; the others follow it with a delay.</p>
     <canvas id="net"></canvas>
   </div>
 </section>
@@ -552,7 +553,7 @@ body[data-screen=search] .clockbox .lead,body[data-screen=search] #clock{display
 <div class="waiting">Waiting for the main screen. Open it in another window on this computer.</div>
 </main>
 <script>
-/* STAMPEDE UI mockup.
+/* STAMPEDE UI.
    Everything under "MOCK SIM" stands in for the real engine. In production the
    M29/M30 live server streams: an init message (positions, district ids, VIPs,
    district polygons) once, then per tick a Uint8 state array plus a JSON packet
