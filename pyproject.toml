@@ -1,5 +1,6 @@
 [project]
 name = "stampede"
+license = { text = "MIT" }
 version = "0.1.0"
 description = "STAMPEDE: GPU-accelerated agent-based bank-run simulator calibrated to the 2023 SVB run"
 authors = [{ name = "Sebastian Villalba" }]

@@ -146,3 +146,7 @@ Non-bank market fits (stock and crypto shocks):
 - Briola et al., "Anatomy of a Stablecoin's Failure: The Terra-Luna Case": https://arxiv.org/abs/2207.13914
 - Liu, Makarov and Schoar, "Anatomy of a Run: The Terra Luna Crash" (NBER w31160): https://www.nber.org/papers/w31160
 - Yardeni, S&P 500 bear markets appendix: https://www.yardenibook.com/pub/15.4appendix.pdf
+
+## License
+
+MIT. See [LICENSE](LICENSE).
