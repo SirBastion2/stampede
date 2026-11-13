@@ -1,0 +1,218 @@
+.market-region {
+  margin-top: 1rem;
+  color: #f4f1ee;
+}
+
+.market-embed-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.market-embed-header h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f4f1ee;
+}
+
+.market-region .ticker-lockup {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: #f0a09a;
+  font-weight: 600;
+}
+
+.market-region .ticker,
+.market-region .ticker-price,
+.market-region .ticker-change {
+  color: #f0a09a;
+}
+
+.market-region .ticker-change.up {
+  color: #3ecf8e;
+}
+
+.market-region .market-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.market-region .panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 0.75rem 1rem;
+  background: rgba(22, 18, 20, 0.58);
+}
+
+.market-region .panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #e7e5e4;
+}
+
+.market-region .chart-panel {
+  padding: 0.5rem 0.5rem 0.25rem;
+}
+
+.market-region .marker-legend,
+.marker-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.25rem;
+  padding: 0 0.25rem;
+  list-style: none;
+  color: #e7e5e4;
+  font-size: 0.75rem;
+}
+
+.market-region .price-canvas {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+.market-region .depth-combo {
+  display: flex;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(40, 24, 24, 0.45);
+}
+
+.market-region .depth-buy {
+  background: repeating-linear-gradient(
+    90deg,
+    #3ecf8e,
+    #3ecf8e 6px,
+    #166534 6px,
+    #166534 8px
+  );
+}
+
+.market-region .depth-sell {
+  background: repeating-linear-gradient(
+    90deg,
+    #ef4444,
+    #ef4444 6px,
+    #7f1d1d 6px,
+    #7f1d1d 8px
+  );
+}
+
+.market-region .depth-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.market-region .buy-label {
+  color: #86efac;
+}
+
+.market-region .sell-label {
+  color: #fecaca;
+}
+
+.market-region .statement-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.market-region .statement-row {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+}
+
+.market-region .statement-hero {
+  background: rgba(22, 120, 64, 0.72);
+  border-color: rgba(62, 207, 142, 0.35);
+}
+
+.market-region .statement-neutral {
+  background: rgba(12, 14, 16, 0.45);
+  border-color: rgba(180, 190, 186, 0.22);
+}
+
+.market-region .statement-rejected {
+  background: rgba(140, 36, 40, 0.72);
+  border-color: rgba(239, 107, 107, 0.35);
+}
+
+.market-region .verdict-icon {
+  font-weight: 700;
+  text-align: center;
+}
+
+.market-region .statement-hero .verdict-icon,
+.market-region .statement-neutral .verdict-icon {
+  color: #bbf7d0;
+}
+
+.market-region .statement-rejected .verdict-icon {
+  color: #fecaca;
+}
+
+.market-region .stmt-impact {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.market-region .statement-hero .stmt-impact,
+.market-region .statement-neutral .stmt-impact {
+  color: #bbf7d0;
+}
+
+.market-region .statement-rejected .stmt-impact {
+  color: #fecaca;
+}
+
+.market-region .halt-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid #ef6b6b;
+  border-radius: 8px;
+  background: rgba(127, 29, 29, 0.28);
+  font-size: 0.875rem;
+}
+
+.market-empty {
+  margin: 0.5rem 0 0;
+  color: #e7e5e4;
+}
+
+@media (max-width: 720px) {
+  .market-region .statement-row {
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+  }
+
+  .market-region .stmt-impact {
+    grid-column: 2;
+    white-space: normal;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "updates": {
+    "M06 attention ceiling by credibility enabled": {
+      "Value": "false"
+    },
+    "M06 attention ceiling reference credibility": {
+      "Value": "0.8"
+    },
+    "M29 live attention ceiling by credibility": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M06 attention ceiling by credibility enabled": {
+      "Status": "ASSUMED",
+      "Module": "M06",
+      "Unit": "bool",
+      "Source": "SVB-62 ADR-107 flag, default off (off = logs and the SVB fit byte-identical). On, M06 clips the bank attention level at min(1, credibility / reference) for the strongest live panic rumor instead of at 1, so a weak poster cannot saturate depositor attention like a strong one (role washout: M03 levels pass 1 within minutes for any credibility). Refused under GPU calibration when on in the registry."
+    },
+    "M06 attention ceiling reference credibility": {
+      "Status": "ASSUMED",
+      "Module": "M06",
+      "Unit": "credibility",
+      "Source": "SVB-62 ADR-107: the SVB fit rumor's credibility (calibration/fit.py _default_svb_scenario, 0.8); rumors at or above it keep the fitted clip at 1, so the fitted SVB curve is unchanged for them."
+    },
+    "M29 live attention ceiling by credibility": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "SVB-62 ADR-107: the live server's real-mode engine turns on the M06 credibility ceiling (Sebastian approved Nov 3) so poster roles and presets differ visibly: in the sandbox a credibility-0.72 rumor requests 56% and a 0.55 rumor 9% of a 0.9 rumor's day-one total."
+    }
+  }
+}

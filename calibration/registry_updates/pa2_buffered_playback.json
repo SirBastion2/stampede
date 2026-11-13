@@ -1,0 +1,24 @@
+{
+  "updates": {
+    "M29 live buffered playback": {
+      "Value": "true"
+    },
+    "M29 live playback head start seconds": {
+      "Value": "2"
+    }
+  },
+  "append": {
+    "M29 live buffered playback": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "P-A2: in live real mode the server's producer thread steps the engine into a frame buffer and the screens play from it; playback never passes the newest computed minute, so if the engine is slower than 1x (diag-11 v2 on the 3060 desktop: up to 106.9 s for 1441 steps against 105 s of playback) playback slows to the engine's pace and the screens hold the newest frame instead of jumping. The producer leads by at most the head start plus 2 minutes. Off: the old inline stepping on the event loop. Fake mode never buffers."
+    },
+    "M29 live playback head start seconds": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "s",
+      "Source": "P-A2 (design call, Nov 4; may be raised later): seconds of 1x playback buffered before the screens start, and with 2 minutes the most the engine runs ahead. diag-11 sized a fixed-rate head start at 12 s (max(0, 106.9 - 105) + 10); with playback clamped to the newest computed minute it only has to absorb step jitter, and a smaller lead means a mid-run post (the insured chip) takes effect about 2 s after the minute on screen (27 simulated minutes at 1441/105 per second) instead of about 12 s (165 minutes). Raise it if diag-04 live_smoke --server shows stutter."
+    }
+  }
+}

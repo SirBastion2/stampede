@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M06 guarantee uninsured-gap scale (ASSUMED)": {
+      "Source": "CM-1: value unchanged (0); Status stays ASSUMED because M06 loads only ASSUMED rows (decide.py _assumed). Martin, Puri & Ufier (J. Finance; NBER w24589 rev. Dec 2025, Table III col. 3): accounts covered by the temporary TAG guarantee liquidated 9.4 pp less, statistically the same as regular FDIC insurance (p = 0.67), so a guaranteed depositor behaves like an insured one. Conditional on the M06 rule that insured depositors do not run (Cipriani, Eisenbach & Kovner, NY Fed SR 1104: almost no retail runs in March 2023)."
+    },
+    "M22 DIF loss uninsured fraction (ASSUMED)": {
+      "Value": "0.104",
+      "Status": "SOURCED",
+      "Source": "CM-1: FDIC special assessment final rule (Nov 2023): SVB loss attributable to protecting uninsured depositors $15.7B on $151.6B uninsured deposits = 10.4%. A loss given failure: the FDIC took it because SVB failed."
+    },
+    "M22 moral hazard base by lever (ASSUMED)": {
+      "Source": "§18.5 M22 moral-hazard meter bases. CM-1: the values stay ASSUMED; only the ordering is supported: Demirgüç-Kunt & Detragiache (J. Monetary Econ. 49(7), 2002; 61 countries, 1980-97) find explicit deposit insurance raises the likelihood of banking crises, more so the wider the coverage, so a full guarantee ranks highest."
+    }
+  }
+}

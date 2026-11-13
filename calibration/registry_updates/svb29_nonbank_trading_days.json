@@ -1,0 +1,20 @@
+{
+  "updates": {
+    "Non-bank sim minutes per day": {
+      "Value": "390",
+      "Status": "ASSUMED",
+      "Source": "SVB-29: one simulated trading session (390 minutes) is one day, the convention of E13 (1 trading day) and the E16 trading-day row (23). Was 1440 (calendar minutes), which put both days-to-bottom targets out of reach of a 390-minute run and made them constant penalties."
+    },
+    "Non-bank E16 SPX trading days to bottom": {
+      "Value": "23"
+    }
+  },
+  "append": {
+    "Non-bank E16 SPX trading days to bottom": {
+      "Status": "SOURCED",
+      "Source": "Derived from the VERIFIED 2020-02-19 peak close and 2020-03-23 trough close: 23 NYSE trading days after the peak through the trough (Feb 20-28: 7; Mar 2-20: 15; Mar 23: 1), no market holidays in the window. The calendar-day row (33) stays for reference.",
+      "Module": "M27",
+      "Unit": "trading days"
+    }
+  }
+}

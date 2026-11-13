@@ -1,0 +1,514 @@
+Parameter,Value,Status,Source,Module,Unit
+Insurance limit,"$250,000 per depositor, per bank, per ownership category",VERIFIED (statutory),FDIC,M05,USD
+SVB-like preset: deposits,$175B (year-end 2022),VERIFIED,E1,M28,USD
+SVB-like: uninsured share,>93%,VERIFIED,E2,M05,fraction
+SVB-like: top-10 depositor balance,$13.3B,VERIFIED,E3,M05,USD
+Signature-like: first-day outflow,20% of deposits,VERIFIED,E5,M28,fraction
+Attention memory window,4 hours,VERIFIED (design follows),E10,M03,hours
+Behavioral thresholds and weights (≈10–15),—,FIT on SVB only,M27,M27,count
+SVB-like: March 9 withdrawn,$42B,VERIFIED,E1,M27,USD
+SVB-like: March 10 scheduled withdrawals,$100B,VERIFIED,E1,M27,USD
+SVB-like: two-day cumulative outflow share,81% of $175B in deposits,VERIFIED,E1,M27,fraction
+SVB-like: March 8 securities loss realized,$1.8B,VERIFIED,E4,M09,USD
+SVB-like: negative cash end of March 9,nearly $1B,VERIFIED,E4,M08,USD
+Signature-like: withdrawn March 10,$18.6B,VERIFIED,E5,M07,USD
+Signature-like: cash deficit,nearly $4B,VERIFIED,E5,M08,USD
+Signature-like: pending wires at reopen,"about 1,000 wires worth $4.6B",VERIFIED,E5,M07,USD
+Policy: First Republic big-bank deposit analog,$30B,VERIFIED,E7,M22,USD
+High pre-run Twitter exposure stock loss premium,4.3 percentage points,VERIFIED,E10,M14,percentage points
+Validation: personalized reassurances reduce withdrawal intent,direction check (Kazinnik),VERIFIED,E11,M25,
+Validation: social-media signals need bank-specific calibration,pitch framing; reason for simulating,VERIFIED,E12,M27,
+Preset: tech-concentrated bank (SVB-like),built to reproduce E1–E4,UNSET,§12.1,M28,
+Preset: crypto-heavy follower bank (Signature-like),built to reproduce E5,UNSET,§12.1,M28,
+Preset: insured community bank,placebo: no run,UNSET,§12.1,M28,
+M28 default rumor poster node,hub-public-1,ASSUMED,§5 M28 rumor and poster control,M28,node id
+M28 opening CET1 ratio,0.12,ASSUMED,opening balance sheet matches fold_book bootstrap,M28,fraction
+M28 tech-concentrated default rate path knots,0:0.04;180:0.06,ASSUMED,2022-like hike for SVB-like preset,M28,knots
+Validation target: E1 SVB day 1 outflow %,±25% relative,UNSET,§13,M27,tolerance
+Validation target: E1 SVB 2-day cumulative outflow,±25%,UNSET,§13,M27,tolerance
+Validation target: requests by next open,±10%,UNSET,§13,M27,tolerance
+Validation target: settled day one,±25%,UNSET,§13,M27,tolerance
+Validation target: E5 Signature first-day outflow %,±35%,UNSET,§13,M27,tolerance
+Validation target: placebo insured community bank survives,Yes or no,UNSET,§13,M27,tolerance
+Performance: 1M depositors memory,≈64 MB (1M × ~64 bytes),UNSET,§9,M33,MB
+Performance: 3 graph layers edge memory,≈0.5 GB (~20M edges × 8 bytes),UNSET,§9,M02,GB
+Performance: full-detail tick GPU,"<5 ms (1M depositors, 2 banks)",UNSET,§9,M06,ms
+Performance: full-detail tick CPU accounting,<3 ms,UNSET,§9,M08,ms
+Performance: futures batch (16×250k×1 sim-day),<5 s batched on GPU,UNSET,§9,M26,s
+Performance: crisis room end-to-end,<20 s (~10 s LLM parallel cached + ~5 s futures),UNSET,§9,M24,s
+Performance: UI frame rate (deck.gl 1M points),30 fps with level of detail when zoomed out,UNSET,§9,M29,fps
+Depositor count (Tier 0),100k,UNSET,§4,M05,count
+Depositor count (Tier 2),1M,UNSET,§4,M05,count
+Bank count (Tier 0),1,UNSET,§4,M08,count
+Bank count (Tier 2),2,UNSET,§4,M08,count
+Stock traders per bank,~300,UNSET,§4,M14,count
+Concurrent Grok agents (total),~25,UNSET,§4,M41,count
+VIP depositor Grok agents (M41),15,UNSET,§7.1,M41,count
+Bank CEO Grok agents (M42),2,UNSET,§7.1,M42,count
+Regulator advisor Grok agent (M22),1,UNSET,§7.1,M22,count
+"Journalists, analysts, short sellers (M04, M44)",~7,UNSET,§7.1,M04,count
+Media and analyst agents (M04 implementation),about 5,UNSET,§18.1,M04,count
+Futures count (typical batch),16,UNSET,ADR 004,M26,count
+Futures depositor count per future,250k,UNSET,ADR 004,M26,count
+Futures tick interval,5 minutes,UNSET,ADR 004,M26,minutes
+Futures acceptance: 16×250k×1 day,under 5 seconds,UNSET,§18.6,M26,s
+Crisis writer candidate statements,32,UNSET,§5 M24,M24,count
+Crisis room LLM budget (crisis writer),1–2 calls,UNSET,§7,M24,calls
+M24 LLM offline default,true,ASSUMED,§7 offline demos and tests; set STAMPEDE_OFFLINE=0 to allow live calls,M24,
+Persona panel archetypes per bank type,about 20,UNSET,§5 M25,M25,count
+Persona panel acceptance latency,under 8 seconds,UNSET,§18.6,M25,s
+Persona panel call budget,1 batched call per statement (32 per crisis room),UNSET,§7,M25,calls
+M25 archetype catalog version,1,ASSUMED,§18.6 M25 persona cache key,M25,version
+M25 persona panel Grok model,grok-4.1-fast,ASSUMED,§7 M25 fast tool-calling model,M25,model
+M25 rule generic reassurance worry delta,-0.05,ASSUMED,§18.6 M25 offline rule generic statement,M25,fraction
+M25 rule personalized reassurance worry delta,-0.12,ASSUMED,§18.6 M25 offline rule personalized (E11),M25,fraction
+M25 rule threshold delta scale,0.04,ASSUMED,§18.6 M25 offline rule,M25,fraction
+M25 rule act-now share baseline,0.15,ASSUMED,§18.6 M25 offline rule,M25,fraction
+Rumor mutator repost sample rate,about 1%,UNSET,§18.1,M03,fraction
+Rumor mutator call budget,≤20 per rumor,UNSET,§7,M03,calls
+Headline writer call budget,≤1 per threshold crossing,UNSET,§7,M04,calls
+Media headline latency acceptance,within 2 simulated minutes of threshold crossing,UNSET,§18.1,M04,minutes
+Media agent attention threshold,TBD,UNSET,§18.1,M04,
+Media agent price-move threshold,TBD,UNSET,§18.1,M04,
+Media agent loss-surprise threshold,TBD,UNSET,§18.1,M04,
+Media agent attention threshold (ASSUMED),0.30,ASSUMED,§18.1 M04 Wave A stand-in until TBD calibrated,M04,fraction
+Media agent price-move threshold (ASSUMED),0.05,ASSUMED,§18.1 M04 session drawdown fraction,M04,fraction
+Media agent loss-surprise threshold (ASSUMED),0,ASSUMED,§18.1 M04 any positive loss,M04,USD
+M04 headline writer Grok model,grok-4.1-fast,ASSUMED,§7 M04 fast tool-calling model,M04,model
+Media headline latency max minutes (ASSUMED),2,ASSUMED,§18.1 M04 acceptance,M04,minutes
+M04 headline reach base (ASSUMED),8000,ASSUMED,§18.1 M04 headline reach scale,M04,count
+Depositor complex contagion minimum worried contacts (k),TBD,UNSET,§18.2,M06,count
+Trading halt: price move threshold (X%),TBD,UNSET,§18.4,M14,percent
+Trading halt: window (Y minutes),TBD,UNSET,§18.4,M14,minutes
+Bank management: borrow when cash below threshold,TBD,UNSET,§18.3,M23,
+Bank management: raise capital when capital below threshold,TBD,UNSET,§18.3,M23,
+Short-seller vulnerability publish threshold,TBD,UNSET,§18.4,M44,
+Calibration behavioral parameter count,10–15,FIT on SVB only,M27,M27,count
+Calibration objective,weighted squared log-error against E1 targets,FIT on SVB only,M27,M27,
+Calibration optimizer,CMA-ES,UNSET,§18.6,M27,
+Calibration behavioral parameter dimension,17,ASSUMED,SVB-35 reuses index 16 for the decision-to-request rate; media rate stays at prior,M27,count
+Calibration CMA-ES population size,8,ASSUMED,§18.6 M27 CPU CMA-ES,M27,count
+Calibration CMA-ES max generations,40,ASSUMED,§18.6 M27 CPU CMA-ES,M27,count
+Calibration eval simulation minutes,1440,ASSUMED,§18.6 M27 fake-engine eval horizon,M27,minutes
+Calibration E1 day-1 objective weight,1,ASSUMED,§18.6 M27 objective,M27,
+Calibration E1 requested day-one target,0.249,ASSUMED,SVB timeline: ~$42B of $175B requested Thu Mar 9 2023,M27,fraction
+Calibration E1 two-day objective weight,1,ASSUMED,§18.6 M27 objective,M27,
+Calibration E1 day-1 stock objective weight,0,ASSUMED,"SVB-36: the E1 stock ratio is reported, not fitted. In the calibration stock path the price falls only through withdrawal price impact (no scripted drawdown, SVB-14), so a 0.40 close needs ~0.46 requested by close and cannot coexist with 0.249 requested by close (price impact at its upper bound 4 gives 0.71-0.81 at 0.15-0.28 requested). SVB's real -60% on Mar 9 2023 followed the Mar 8 loss and capital-raise announcement, which this path does not model.",M27,
+Calibration E1 day-1 stock target,0.40,ASSUMED,SVB-06 −60% day-one close vs open (1 + return = 0.40),M27,fraction
+Calibration M06 amount scale (ASSUMED),1,ASSUMED,§18.6 M27 vector index 9 withdrawal multiplier,M27,multiplier
+Calibration identifiable parameter indices,"7,15,16",ASSUMED,"SVB-36: worry bias and h set day-1 timing; mobile share sets next-open. Price impact (14) left the fit set with the stock term (SVB-35 set was 7,14,15,16).",M27,index
+Calibration shared eval seed count,8,ASSUMED,playbook v7.2 §0.26 shared seeds for every candidate,M27,count
+Calibration softness initial,0.15,DEPRECATED,unused since SVB-01 (fixed behavioral noise).,M27,worry
+Calibration softness final,0.01,DEPRECATED,unused since SVB-01 (fixed behavioral noise).,M27,worry
+Calibration behavioral noise temperature,0.06,ASSUMED,fixed behavioral noise; sensitivity-tested,M27,worry
+Calibration log-space prior strength,0.05,ASSUMED,weak L2 prior on identifiable log-space coordinates,M27,
+Calibration bracket grid size,17,ASSUMED,stage-1 batched sweep that brackets the E1 tipping point,M27,count
+Calibration log-param bound,2,ASSUMED,absolute bound on identifiable log-scale coordinates,M27,
+Calibration bias-param bound,4,ASSUMED,absolute bound on the identifiable worry-bias coordinate,M27,logit
+Calibration CMA-ES restarts,1,ASSUMED,stage-2 restarts inside the tipping-point bracket,M27,count
+Population test: insured share tolerance,±1 point,UNSET,§18.2,M05,percentage points
+Population test: top-10 balance tolerance,±5%,UNSET,§18.2,M05,fraction
+"Network build acceptance (1M nodes, 3 layers)",under 30 seconds,UNSET,§18.1,M02,s
+Securities test: +100 bp on 6-year duration bond,about −6%,UNSET,§18.3,M09,percent
+VIP agent decision cadence,every 30 simulated minutes or on trigger,UNSET,§7.1,M41,minutes
+VIP agent batch size,10 per call,UNSET,§7.1,M41,count
+Grok API concurrency semaphore (initial),32 requests in flight,UNSET,§7.1,M41,count
+VIP agent memory depth,5-event memory,UNSET,§18.2,M41,events
+LLM calls per one-day scenario,"about 2,000",UNSET,§7.1,M33,calls
+LLM tokens per call (typical),~1k input and 200 output,UNSET,§7.1,M33,tokens
+LLM cost estimate per scenario (Grok 4.1 Fast list prices),about $0.60,UNSET,§7.1,M33,USD
+Narrator call budget,≤1 per 10 seconds,UNSET,§7,M33,calls
+UI WebSocket stream rate,10 Hz,UNSET,§20.3,M29,Hz
+M29 UI live crisis sim minutes,120,ASSUMED,§5 M29 full crisis playback horizon at 1×,M29,minutes
+M29 UI live playback target seconds,105,ASSUMED,§5 M29 default wall-clock length (~90–120 s band),M29,s
+M29 UI client stream fps,30,ASSUMED,§5 M29 live WebSocket frame rate,M29,fps
+M29 UI fake-mode render points,2048,ASSUMED,§5 M29 shell (CPU layout; not full Tier-0 100k cloud),M29,count
+M29 layout community count,8,ASSUMED,§5 M29 network-community layout,M29,count
+Assumption: Grok model names and prices,TBD,TO VERIFY,§8.3,M33,
+"Assumption: desktop GPU (RTX 3060, 12 GB VRAM)","RTX 3060, 12 GB VRAM",TO VERIFY,§8.3,M33,
+Pitch: simulated customers,a million,UNSET,§1,M05,count
+Pitch: Grok agents,about 25,UNSET,§1,M41,count
+M44 short-seller mechanism,TBD,ASSUMED,§4 M44,M44,
+Calendar business open hour,9,UNSET,§2.3,M00,hours
+Calendar business close hour,17,UNSET,§2.3,M00,hours
+Calendar wire cutoff hour,17,UNSET,§2.3,M00,hours
+Calendar facility open hour,9,UNSET,§2.3,M00,hours
+Calendar facility close hour,17,UNSET,§2.3,M00,hours
+Calendar sim epoch minute,540,UNSET,§2.3,M00,minutes
+M01 maturity buckets (years),"0.25,0.5,1,2,3,5,7,10,20,30",ASSUMED,§5 M01 Treasury curve from 3 months to 30 years,M01,years
+M01 Nelson-Siegel lambda,0.7308,ASSUMED,Diebold-Li 2006 lambda 0.0609 per month rescaled to years,M01,1/years
+M01 Nelson-Siegel beta0,0.04,ASSUMED,§18.1 M01 level factor not fitted,M01,fraction
+M01 Nelson-Siegel beta2,-0.02,ASSUMED,§18.1 M01 curvature factor not fitted,M01,fraction
+M01 default policy rate,0.045,ASSUMED,empty rate_path; same level the Wave A stand-in used,M01,fraction
+M01 policy rate floor,0,ASSUMED,§5 M01,M01,fraction
+M01 policy rate cap,0.25,ASSUMED,§5 M01 sanity bound,M01,fraction
+M01 unemployment baseline,0.04,ASSUMED,§5 M01,M01,fraction
+M01 unemployment floor,0,ASSUMED,§5 M01,M01,fraction
+M01 unemployment cap,0.5,ASSUMED,§5 M01,M01,fraction
+M01 CRE office baseline,1,ASSUMED,§5 M01 index level,M01,index
+M01 CRE multifamily baseline,1,ASSUMED,§5 M01 index level,M01,index
+M01 CRE retail baseline,1,ASSUMED,§5 M01 index level,M01,index
+M01 CRE index floor,0,ASSUMED,§5 M01 prices cannot be negative,M01,index
+M01 representative bond duration,6,ASSUMED,§18.3 +100 bp on a 6-year duration bond is about -6 percent,M01,years
+M01 representative bond convexity,20,ASSUMED,§19 M09 half-convexity term; +100 bp stays within about 1 point of -6 percent,M01,years^2
+M34 blocklist bank names,silicon valley bank;signature bank;first republic;silvergate;chase;jpmorgan;jp morgan;bank of america;wells fargo;citibank;goldman sachs;morgan stanley;hsbc;truist;capital one,VERIFIED (design),§5 M34,M34,
+M34 blocklist tickers,svb;sbny;sivb;frb,VERIFIED (design),§5 M34,M34,
+M34 fuzzy match max edit distance,2,ASSUMED,§5 M34,M34,count
+M34 live attention mode default,false,UNSET,§5 M34,M34,
+M34 rumor moderation slur tokens,,UNSET,§5 M34,M34,
+M34 rumor moderation real-person names,,UNSET,§5 M34,M34,
+M34 rumor max characters,280,ASSUMED,§5 M34 live rumor box length cap,M34,characters
+M34 rumor new cooldown seconds,30,ASSUMED,§5 M34 at most one new rumor per 30 seconds,M34,seconds
+M34 rumor credibility floor,0.05,ASSUMED,§5 M34 code-computed live credibility clamp,M34,fraction
+M34 rumor credibility cap,0.9,ASSUMED,§5 M34 code-computed live credibility clamp,M34,fraction
+M34 rumor model shift max,0.1,ASSUMED,"§5 M34 bound on the judged plausibility shift: (plausibility - 0.5) x 2 x this; 0 offline (ADR-092)",M34,fraction
+M34 rumor specificity weight,0.2,ASSUMED,§5 M34 specificity bonus added to poster credibility,M34,fraction
+M07 app transfer daily limit,$50M,ASSUMED,§5 M07,M07,USD
+M07 capacity multiplier (FIT),13.414,FITTED,m27-e1-svb37-20261102 seed=3060; target 0.24 unreachable; plateau 0.2202; capacity non-binding at or above this multiplier,M07,multiplier
+M07 wire capacity per tick,$25M,ASSUMED,§5 M07,M07,USD
+M07 ACH batch capacity,$100M,ASSUMED,§5 M07,M07,USD
+M07 ACH batch at business close minute,17,ASSUMED,§2.3 M00 business close,M07,hours
+M07 branch capacity per tick,$2M,ASSUMED,§5 M07,M07,USD
+M07 VIP withdrawal channel,wire,ASSUMED,§19 M07,M07,
+M14 halt price move threshold (X%),8,ASSUMED,§18.4 X% not specified; 8 percent is the Wave A stand-in drawdown,M14,percent
+M14 halt window (Y minutes),5,ASSUMED,§18.4 Y minutes not specified; 5 minutes is the Wave A stand-in lookback,M14,minutes
+M14 trading halt duration,15,DEPRECATED,"Retired by SVB-27f: the real book (engine/markets/book.py) now reads 'M14 trading halt minutes' = 5 (SOURCED, SEC LULD 5-minute pause), the same row as the gpu-sim and fake halts. Kept for history; nothing reads it.",M14,minutes
+M14 trading halt minutes,5,SOURCED,SEC Limit Up-Limit Down plan: 5-minute pause on a limit state; SVB-25,M14,minutes
+M14 opening price,100,ASSUMED,§5 does not set an opening print; Wave A stand-in used 100,M14,price
+M14 opening CET1,0.12,ASSUMED,§5 value traders need a public capital baseline; Wave A stand-in used 0.12,M14,fraction
+M14 opening policy rate,0.045,ASSUMED,§5 value traders mark unrealized losses off the policy rate; same level as the M01 default,M14,fraction
+M14 public bond duration,6,ASSUMED,§5 value traders use public unrealized-loss sensitivity; same 6-year figure as the §18.3 check,M14,years
+M14 market-maker base half-spread,0.02,ASSUMED,§5 spreads widen with volatility but the base is not set; Wave A stand-in used 0.02 price points,M14,price
+M14 market-maker volatility multiplier,6,ASSUMED,§5 does not set how fast the spread widens; 6 is the Wave A stand-in scale,M14,multiple
+M14 short borrow limit per trader,1000,ASSUMED,§5 short sellers are limited by borrowing availability; per-trader share cap not specified,M14,shares
+M14 short borrow cost,0.02,ASSUMED,§5 short sellers are limited by borrowing cost; fraction not specified,M14,fraction
+M14 quote size per market maker,100,ASSUMED,§5 does not set displayed size,M14,shares
+M14 aggressive order size,200,ASSUMED,§5 does not set trader order size,M14,shares
+M14 reservation adjustment per minute,0.5,ASSUMED,§5 does not set how fast quotes move toward public fair value,M14,fraction
+M14 headline reach scale,50000,ASSUMED,§5 headlines are an input; reach is scaled into news pressure. Wave A stand-in used 50000,M14,reach
+M14 analyst note attention weight,0.1,ASSUMED,§5 analyst notes are an input; each note adds this much news pressure,M14,fraction
+M14 momentum return scale,0.01,ASSUMED,§5 momentum traders follow returns; a 1 percent move is a full-size order,M14,fraction
+M14 trader starting cash,1000000,ASSUMED,§3 traders hold cash; starting cash is not specified,M14,price
+M33 demo mode default,true,ASSUMED,§5 M33 scripted demo path,M33,
+M33 offline flag default,true,ASSUMED,§5 M33 Wi-Fi-off demo,M33,
+M33 Philox samples per tick,4,ASSUMED,§18.7 M33 metrics overlay,M33,count
+M33 LLM cache filename,stampede_llm_cache.sqlite,ASSUMED,§7.1 SQLite cache,M33,
+M33 demo script prompt hash,demo-two-minute-script-v1,ASSUMED,§12.2 two-minute demo,M33,
+M33 demo script model name,grok-demo,ASSUMED,§7.1 demo path,M33,
+M33 demo script cached response,"{""status"":""ok"",""offline"":true}",ASSUMED,§12.2 demo spine,M33,
+M02 media and analyst node count,5,ASSUMED,§3 information nodes include about 5 media and analyst agents,M02,count
+M02 public feed edges per new node,10,ASSUMED,§18.1 preferential attachment; directed out-degree near the §9 edge budget at 1M nodes,M02,count
+M02 public feed seed nodes,10,ASSUMED,§18.1 preferential-attachment seed clique; media nodes sit inside it,M02,count
+M02 attachment batch size,1024,ASSUMED,§18.1 batched preferential attachment; each batch links to the degree bag built so far,M02,count
+M02 group chat degree,8,ASSUMED,§18.1 sparse stochastic block model degree,M02,count
+M02 group chat homophily,0.85,ASSUMED,§18.1 founder and VC communities stay recoverable,M02,fraction
+M02 advisor count,2048,ASSUMED,§18.1 advisors are media plus a sample of founder and VC nodes,M02,count
+M02 professional ties per treasurer,3,ASSUMED,§18.1 bipartite treasurer-advisor degree,M02,count
+M02 channel weight public,1,ASSUMED,§5 public-feed channel weight,M02,weight
+M02 channel weight group,1.2,ASSUMED,§5 group-chat channel weight,M02,weight
+M02 channel weight professional,1.1,ASSUMED,§5 professional-tie channel weight,M02,weight
+M02 node channel weight,1,ASSUMED,§5 per-node channel weight; 1 keeps spread equal to w times A times exposure,M02,weight
+M02 credibility base,0.35,ASSUMED,§5 node credibility is not specified,M02,fraction
+M02 credibility media bonus,0.4,ASSUMED,§5 media and analyst nodes are more credible sources,M02,fraction
+M02 credibility hub scale,0.25,ASSUMED,§5 hub credibility rises with log follower count,M02,fraction
+M02 credibility floor,0.01,ASSUMED,§5 credibility stays positive,M02,fraction
+M02 credibility cap,0.99,ASSUMED,§5 credibility stays below 1,M02,fraction
+M02 population tier,0,ASSUMED,§3 tier 0 depositor count when the scheduler builds the network,M02,tier
+M02 test heavy-tail top fraction,0.01,ASSUMED,§18.1 follower-count heavy tail,M02,fraction
+M02 test heavy-tail top share minimum,0.15,ASSUMED,§18.1 follower-count heavy tail,M02,fraction
+M02 test heavy-tail max over mean minimum,8,ASSUMED,§18.1 follower-count heavy tail,M02,ratio
+M02 test community recovery minimum,0.7,ASSUMED,§18.1 communities can be recovered,M02,fraction
+M02 test within-community edge share minimum,0.7,ASSUMED,§18.1 stochastic block model,M02,fraction
+M02 build time budget,30,ASSUMED,§18.1 acceptance 1M nodes under 30 seconds,M02,seconds
+M03 sim tick minutes,1,ASSUMED,§2.3 one tick is one simulated minute,M03,minutes
+M03 minutes per hour,60,ASSUMED,unit conversion for the attention memory window,M03,minutes
+M03 rumor exposure,1,ASSUMED,§18.1 impulse at the posting node before the sparse spread,M03,attention
+M03 headline reach divisor,200000,ASSUMED,headline exposure is reach divided by this scale at the most-followed node,M03,reach
+M03 thesis reach divisor,200000,ASSUMED,thesis exposure is reach divided by this scale at the most-followed node,M03,reach
+M03 liquidity drawn exposure,0.04,ASSUMED,§5 M12 stigma on attention; §19 consumes LiquidityDrawn; flat impulse not dollars,M03,attention
+M03 trading halt exposure,0.05,ASSUMED,§19 M03 consumes TradingHalt; flat attention impulse,M03,attention
+M03 statement exposure,0.06,ASSUMED,§19 StatementIssued adds attention; tone is not a term (ADR-001),M03,attention
+M03 bank closed exposure,0.15,ASSUMED,§19 M03 consumes BankClosed; flat attention impulse,M03,attention
+M03 vip decision exposure,0.03,ASSUMED,§19 M03 consumes VIPDecision; flat attention impulse,M03,attention
+M03 context note credibility factor,0.5,ASSUMED,§5 a context note multiplies rumor credibility down,M03,fraction
+M03 rumor mutator sample fraction,0.01,ASSUMED,§18.1 about 1% of reposts; numeric form of the UNSET wording row,M03,fraction
+M03 rumor mutator max calls per rumor,20,ASSUMED,§7 at most 20 mutator calls per rumor,M03,calls
+M03 offline mutator exaggeration,0.25,ASSUMED,§7 offline fallback exaggeration when Grok is off or rejected,M03,score
+M03 offline mutator suffix,(unconfirmed and spreading),ASSUMED,§7 offline rewrite when Grok is off or rejected,M03,text
+M03 grok mutator enabled,false,ASSUMED,§7.1 API fallback; CPU CI does not call Grok,M03,bool
+M03 fallback node count,16,ASSUMED,used when M02 has not supplied CSR layers (ADR-028),M03,count
+M03 fallback edge weight,1,ASSUMED,unweighted fallback edges; channel weight carries the scale,M03,weight
+M03 fallback public channel weight,1,ASSUMED,§5 public-feed channel weight on the fallback graph,M03,weight
+M03 fallback group channel weight,0.6,ASSUMED,§5 private-group channel weight on the fallback graph,M03,weight
+M03 fallback professional channel weight,0.4,ASSUMED,§5 professional-tie channel weight on the fallback graph,M03,weight
+M03 default node credibility,1,ASSUMED,§5 node credibility when M02 does not supply one,M03,fraction
+M03 repost attention scale,1,ASSUMED,repost probability clips credibility times node credibility times attention times this scale,M03,1/attention
+M06 complex contagion k (ASSUMED),3,ASSUMED,§18.2 complex contagion; TBD row Depositor complex contagion minimum worried contacts (k) stays UNSET until M27,M06,count
+M06 worry bias (ASSUMED),-1.73736,FITTED,m27-e1-svb37-20261102 seed=3060,M06,logit
+M06 worry weights (ASSUMED),"2.6,1.5,1.2,-1.5,2.2,0.45,0.55",ASSUMED,§18.2 order: attention contact_withdraw_share insolvency_belief stock_return directive payroll_urgency uninsured_gap,M06,logit
+M06 hub contact weight (ASSUMED),2,ASSUMED,§5 M06 big hub accounts carry extra weight,M06,count
+M06 hub balance quantile (ASSUMED),0.95,ASSUMED,§5 M06 top-tail balances count as hubs,M06,fraction
+M06 contact degree (ASSUMED),4,ASSUMED,§18.2 neighbors per depositor,M06,count
+M06 belief update strength (ASSUMED),0.35,ASSUMED,§18.2 Bayesian public-signal update damping,M06,fraction
+M06 public signal attention weight (ASSUMED),0.45,ASSUMED,§18.2 added to the uninformative signal times attention,M06,fraction
+M06 public signal stock weight (ASSUMED),0.35,ASSUMED,§18.2 added to the signal from a negative stock return,M06,fraction
+M06 uninformative signal (ASSUMED),0.5,ASSUMED,§18.2 public-signal level when attention and the stock return are flat,M06,fraction
+M06 baseline insolvency belief (ASSUMED),0.05,ASSUMED,§18.2 prior used when a row has no belief yet,M06,fraction
+M06 zero-attention worry ceiling (ASSUMED),0.36,ASSUMED,§18.2 zero attention worry stays under this ceiling,M06,fraction
+M06 statement logit shift (ASSUMED),-0.45,ASSUMED,§5 M06 statements shift worry by segment (M25 stand-in),M06,logit
+M06 statement threshold shift (ASSUMED),0.05,ASSUMED,§5 M25 change in threshold; positive raises the bar to withdraw,M06,fraction
+M06 deposit-rate relief weight (ASSUMED),0.8,ASSUMED,§19 DepositRateChanged lowers the worry logit by weight times rate,M06,logit
+M06 guarantee uninsured-gap scale (ASSUMED),0,ASSUMED,"CM-1: value unchanged (0); Status stays ASSUMED because M06 loads only ASSUMED rows (decide.py _assumed). Martin, Puri & Ufier (J. Finance; NBER w24589 rev. Dec 2025, Table III col. 3): accounts covered by the temporary TAG guarantee liquidated 9.4 pp less, statistically the same as regular FDIC insurance (p = 0.67), so a guaranteed depositor behaves like an insured one. Conditional on the M06 rule that insured depositors do not run (Cipriani, Eisenbach & Kovner, NY Fed SR 1104: almost no retail runs in March 2023).",M06,fraction
+M06 cap withdrawal scale (ASSUMED),0.3,ASSUMED,§5 PolicyEnacted cap_withdrawals scales the requested amount,M06,fraction
+M06 minimum withdrawal amount (ASSUMED),1,ASSUMED,§6 WithdrawalRequested amounts below this are not published,M06,USD
+M06 segment withdraw fractions (ASSUMED),"startup:0.80,vc:0.90,founder:0.75,treasurer:0.70,retail:0.25,municipal:0.40,crypto:0.95",ASSUMED,§18.2 amount = fraction times uninsured gap,M06,fraction
+M06 default segment withdraw fraction (ASSUMED),0.5,ASSUMED,§18.2 unknown segment,M06,fraction
+M06 segment channels (ASSUMED),"startup:wire,vc:wire,founder:app,treasurer:wire,retail:branch,municipal:ach,crypto:wire",ASSUMED,§6 WithdrawalRequested.channel by segment,M06,
+M06 default channel (ASSUMED),wire,ASSUMED,§6 unknown segment channel,M06,
+M26 sim-day tick count,78,ASSUMED,§9 one sim-day is about 78 five-minute ticks,M26,count
+M26 complex contagion minimum worried contacts (k),2,ASSUMED,§5 M06 complex contagion needs several worried contacts; §18.2 leaves k TBD,M26,count
+M26 contact offsets,1;3;7;15,ASSUMED,§5 M06 contact share; neighbor offsets are not specified,M26,agents
+M26 hub balance fraction,0.01,ASSUMED,§5 M06 hub accounts carry extra weight; the fraction is not specified,M26,fraction
+M26 hub contact weight,3,ASSUMED,§5 M06 hub accounts carry extra weight; the weight is not specified,M26,count
+M26 worry logit bias,-2.2,ASSUMED,§18.2 sigmoid bias is not specified; chosen so zero attention stays under the threshold,M26,logit
+M26 worry weights,"3.0,2.5,1.0,-2.0,1.5,0.4,0.8",ASSUMED,"§18.2 weights are not specified (attention; contacts; belief; stock return; directive; payroll; uninsured gap)",M26,logit
+M26 logit clip,40,ASSUMED,numerical guard so the sigmoid does not overflow,M26,logit
+M26 threshold low,0.55,ASSUMED,§18.2 withdrawal threshold distribution is not specified,M26,probability
+M26 threshold high,0.80,ASSUMED,§18.2 withdrawal threshold distribution is not specified,M26,probability
+M26 belief low,0.02,ASSUMED,§18.2 initial insolvency belief is not specified,M26,probability
+M26 belief high,0.15,ASSUMED,§18.2 initial insolvency belief is not specified,M26,probability
+M26 belief evidence scale,1.0,ASSUMED,§18.2 Bayesian public-signal update; evidence scale is not specified,M26,logit
+M26 attention signal weight,1.0,ASSUMED,§18.2 public signal from attention; weight is not specified,M26,fraction
+M26 loss signal weight,1.0,ASSUMED,§18.2 public signal from a negative stock return; weight is not specified,M26,fraction
+M26 payroll need rate,0.05,ASSUMED,§18.2 payroll urgency share is not specified,M26,fraction
+M26 balance lognormal sigma,1.5,ASSUMED,§5 heavy-tailed balances; futures draw a seeded lognormal then scale to the deposit total,M26,log
+M26 segment names,startup;vc;founder;treasurer;retail;municipal;crypto,ASSUMED,§5 M05 segment list; futures do not call M05,M26,
+M26 segment shares,"0.34,0.15,0.18,0.16,0.07,0.06,0.04",ASSUMED,§5 M05 shares are not specified; same mix as the Wave A population stand-in,M26,fraction
+M26 segment withdrawal fractions,"1,1,1,0.8,0.25,0.4,1",ASSUMED,§18.2 withdrawal amount depends on segment; fractions are not specified,M26,fraction
+M26 ownership categories per depositor,1,ASSUMED,§5 insured cap is the statutory limit times ownership categories; futures use one category,M26,count
+M26 opening cash fraction of deposits,0.10,ASSUMED,§5 failure when the bank cannot pay; opening cash fraction is not specified,M26,fraction
+M26 opening price,100,ASSUMED,§5 price bands need a launch price when the bus has no print; same level as the M14 opening print,M26,price
+M26 price outflow beta,-0.5,ASSUMED,§5 price bands; outflow sensitivity is not specified,M26,fraction
+M26 price attention beta,-0.01,ASSUMED,§5 price bands; attention drift is not specified,M26,fraction
+M26 price shock scale,0.005,ASSUMED,§5 price bands; Philox shock scale is not specified,M26,fraction
+M26 weight perturbation amplitude,0.10,ASSUMED,§5 perturbed parameters; amplitude is not specified,M26,fraction
+M26 statement worry shift,-0.4,ASSUMED,§5 M25 reassurance shifts worry; futures replay a reduced shift and do not call Grok,M26,logit
+M26 statement threshold shift,0.05,ASSUMED,§5 M25 threshold change is not specified,M26,probability
+M26 statement shift spread,0.05,ASSUMED,§5 different interventions per statement; index spread is not specified,M26,fraction
+M26 cap-withdrawals amount scale,0.30,ASSUMED,§5 cap or delay withdrawals; amount scale is not specified,M26,fraction
+M26 single-future match tolerance,1e-8,ASSUMED,§18.6 a single future matches the main engine within tolerance,M26,fraction
+M26 directive withdraw level,1,ASSUMED,§18.2 directive feature when a reduced rule says withdraw,M26,fraction
+M26 probability floor,1e-12,ASSUMED,numerical floor before a logit so a belief of 0 or 1 does not overflow,M26,probability
+M26 philox stream ids,0;1;2,ASSUMED,Philox stream selectors in order population then shock then weight noise,M26,
+M22 moral hazard base by lever (ASSUMED),"guarantee_deposits:0.55,emergency_lending:0.35,raise_insurance_limit:0.40,cap_withdrawals:0.15,big_bank_deposits:0.22,suspend_trading:0.10,joint_statement:0.05",ASSUMED,"§18.5 M22 moral-hazard meter bases. CM-1: the values stay ASSUMED; only the ordering is supported: Demirgüç-Kunt & Detragiache (J. Monetary Econ. 49(7), 2002; 61 countries, 1980-97) find explicit deposit insurance raises the likelihood of banking crises, more so the wider the coverage, so a full guarantee ranks highest.",M22,fraction
+M22 moral hazard frequency weight (ASSUMED),0.08,ASSUMED,§5 M22 guarantee frequency term,M22,fraction
+M22 moral hazard breadth weight (ASSUMED),0.12,ASSUMED,§5 M22 guarantee breadth term,M22,fraction
+M22 DIF loss uninsured fraction (ASSUMED),0.104,SOURCED,CM-1: FDIC special assessment final rule (Nov 2023): SVB loss attributable to protecting uninsured depositors $15.7B on $151.6B uninsured deposits = 10.4%. A loss given failure: the FDIC took it because SVB failed.,M22,fraction
+M22 Fed emergency lending exposure fraction (ASSUMED),0.25,ASSUMED,§5 M22 Fed BTFP-style exposure,M22,fraction
+M22 assumed uninsured deposit share for DIF (ASSUMED),0.93,ASSUMED,§5 M22 uses SVB-like uninsured share,M22,fraction
+M22 regulator advisor Grok model (ASSUMED),grok-4.1-fast,ASSUMED,§7 M22 regulator advisor,M22,model
+M20 CET1 closure floor,0.045,ASSUMED,§5 M20 capital trigger; Wave A stand-in ASSUMED_CET1_FLOOR,M20,fraction
+M20 opening CET1 ratio,0.12,ASSUMED,§5 M20 watch threshold; matches fold_book opening CET1,M20,fraction
+M20 unpaid obligation threshold,1,ASSUMED,§5 M20 liquidity trigger when cash is short after funding,M20,USD
+M20 securities exhaustion threshold,1,ASSUMED,§5 M20 no securities left to sell before closure,M20,USD
+M44 assumed vulnerability publish threshold,0.2,ASSUMED,§18.4 threshold row stays TBD/UNSET; M44 reads this ASSUMED row (ADR-038),M44,score
+M44 assumed capital-stress bump,0.05,ASSUMED,§18.4 M44 added when CET1 is below the reference; Wave A stand-in used the same bump,M44,score
+M44 assumed reference CET1,0.12,ASSUMED,§18.4 M44 opening CET1 the Wave A stand-in used,M44,ratio
+M44 assumed community uninsured share,0.15,ASSUMED,§18.4 M44 community preset has no verified uninsured share,M44,fraction
+M44 assumed thesis reach base,5000,ASSUMED,§6.1 ThesisPublished.reach is computed by the simulation not by Grok,M44,count
+M44 assumed thesis reach floor,1,ASSUMED,§6.1 ThesisPublished.reach is at least this many people,M44,count
+M44 assumed thesis reach scale low,0.8,ASSUMED,§18.4 M44 low end of the seed band so two seeds diverge,M44,fraction
+M44 assumed thesis reach scale high,1.2,ASSUMED,§18.4 M44 high end of the seed band so two seeds diverge,M44,fraction
+M44 assumed short order quantity,1000,ASSUMED,§18.4 M44 order size recorded for M14; M44 does not write the L3 book,M44,shares
+M44 assumed thesis model,grok-4.1-fast,ASSUMED,§7 fast model for short text; confirm the name in the console,M44,
+M42 attention trigger (ASSUMED),0.25,ASSUMED,§7.1 CEOs act when attention hits the bank; same gate as the Wave A CEO stand-in,M42,fraction
+M42 stock-slide trigger (ASSUMED),-0.05,ASSUMED,§19 stock return at or below this selects a securities sale,M42,fraction
+M42 deposit rate (ASSUMED),0.02,ASSUMED,§6 DepositRateChanged offline rate when the ledger can fund it,M42,fraction
+M42 deposit rate cap (ASSUMED),0.08,ASSUMED,§18 deposit rate above this is refused,M42,fraction
+M42 deposit rate floor (ASSUMED),0,ASSUMED,§18 deposit rate below this is refused,M42,fraction
+M42 deposit rate segment (ASSUMED),startup,ASSUMED,§6 DepositRateChanged.segment for the CEO rate change,M42,segment
+M42 deposit segment balance fraction (ASSUMED),0.02,ASSUMED,§18 share of deposits used to cost the rate against cash,M42,fraction
+M42 borrow collateral haircut (ASSUMED),0.2,ASSUMED,§18 borrow above securities times one minus haircut is refused,M42,fraction
+M42 securities sale fraction (ASSUMED),0.25,ASSUMED,§18 offline sale size as a fraction of securities on the ledger,M42,fraction
+M42 CEO Grok model (ASSUMED),grok-4.1-fast,ASSUMED,§7 fast tool-calling model,M42,model
+M42 CEO fleet size (ASSUMED),2,ASSUMED,§7.1 one strategist per bank across the two-bank timeline,M42,count
+M42 decision cooldown minutes (ASSUMED),30,ASSUMED,§7.1 suppress a repeat CEO decision inside this window,M42,minutes
+M42 sensitivity attention (ASSUMED),1,ASSUMED,§7.1 reduced-rule weight on attention,M42,weight
+M42 sensitivity cet1 (ASSUMED),-1,ASSUMED,§7.1 reduced-rule weight on CET1,M42,weight
+M42 sensitivity stock return (ASSUMED),-0.5,ASSUMED,§7.1 reduced-rule weight on the stock return,M42,weight
+M42 sensitivity cash (ASSUMED),-0.25,ASSUMED,§7.1 reduced-rule weight on cash,M42,weight
+M42 grok live calls enabled (ASSUMED),false,ASSUMED,§7 offline default; live Grok also needs STAMPEDE_OFFLINE off and XAI_API_KEY,M42,bool
+M41 decision interval minutes,30,ASSUMED,§7.1 VIP cadence; prose row VIP agent decision cadence stays UNSET,M41,minutes
+M41 attention trigger level,0.25,ASSUMED,§18.2 on-trigger gate; Wave A VIPFake attention level,M41,fraction
+M41 withdraw fraction of balance,0.1,ASSUMED,§18.2 offline move size; Wave A fake uses a tenth of the top-10 average,M41,fraction
+M41 acceptance example move amount,40000000,ASSUMED,§18.2 VIP feed line Founder of Kestrel Labs moved $40M,M41,USD
+M41 Grok model,grok-4.1-fast,ASSUMED,§7 fast tool-calling model for the VIP batch,M41,model
+M41 rule sensitivities (ASSUMED),"attention:1,uninsured_gap:1,belief:0.5,stock_return:-0.5",ASSUMED,§7.1 reduced-rule weights for attention uninsured_gap belief stock_return,M41,weight
+M41 reduced-rule margin,0.01,ASSUMED,§18.2 threshold sits this far on the deciding side of the score so replay matches,M41,score
+M41 tail rank balance fraction of tenth,0.5,ASSUMED,§5 ranks past the E3 top 10 are half the tenth VIP balance,M41,fraction
+M41 baseline belief,0.05,ASSUMED,§7.1 reduced-rule belief feature before a public signal arrives,M41,fraction
+M29 orb base radius px,2.1,ASSUMED,§5 M29 insured orb radius before the balance term,M29,px
+M29 uninsured orb extra radius px,1.9,ASSUMED,§5 M29 uninsured orbs are larger than insured orbs,M29,px
+M29 orb radius cap px,5.2,ASSUMED,§5 M29 hard cap so a block never draws as one huge circle,M29,px
+M29 orbs transitioning per tick,5,ASSUMED,§5 M29 a few orbs change state per tick,M29,count
+M29 uninsured orb fraction,0.08,ASSUMED,§5 M29 share of orbs drawn as the larger uninsured dot,M29,fraction
+M29 demo crowd population,1000000,ASSUMED,§5 M29 bundled fake frame uses the pitch population,M29,count
+M29 demo withdrew share,0.28,ASSUMED,§5 M29 fake run-phase mix,M29,fraction
+M29 demo wavering share,0.22,ASSUMED,§5 M29 fake run-phase mix,M29,fraction
+M29 demo cash gauge,0.62,ASSUMED,§5 M29 fake frame cash gauge (0.62 × $5B = $3.1B),M29,fraction
+M29 demo time to failure ticks,116,ASSUMED,§5 M29 fake frame time to failure,M29,ticks
+M29 demo tipping point,1,ASSUMED,§5 M29 fake frame is past the tipping point,M29,fraction
+M06 fake arc strong end withdraw share (ASSUMED),0.55,ASSUMED,§5 M06 fake pitch end share at credibility 1; not a FIT behavioral weight,M06,fraction
+M06 fake arc logistic midpoint (ASSUMED),0.50,ASSUMED,§5 M06 fake pitch S-curve midpoint as a fraction of the crisis horizon,M06,fraction
+M06 fake arc logistic steepness (ASSUMED),18,ASSUMED,§5 M06 fake pitch S-curve steepness,M06,1
+M06 fake arc strong credibility (ASSUMED),0.80,ASSUMED,§5 M06 credibility that fully drains the fake cash gauge and price,M06,fraction
+M06 fake arc cash empty at horizon fraction (ASSUMED),0.65,ASSUMED,§5 M06 fake operating-cash gauge reaches empty at this fraction of the horizon,M06,fraction
+M06 fake arc partial hole start (ASSUMED),0.72,ASSUMED,§5 M06 fake book posts a small hole here so a watch can fire,M06,fraction
+M06 fake arc partial hole deposit fraction (ASSUMED),0.002,ASSUMED,§5 M06 fake partial hole as a share of deposits; leaves securities on the book,M06,fraction
+M06 fake arc closure hole start (ASSUMED),0.78,ASSUMED,§5 M06 fake book exhausts securities after the gauge is already empty,M06,fraction
+M06 fake arc closure hole deposit fraction (ASSUMED),0.05,ASSUMED,§5 M06 fake closure hole as a share of deposits; not the displayed depositor share,M06,fraction
+M06 fake arc wavering lead minutes (ASSUMED),18,ASSUMED,§5 M06 fake wavering band leads withdrawals by this many simulated minutes,M06,minutes
+M06 fake arc directed withdraw credibility (ASSUMED),0.55,ASSUMED,§5 M06 a withdraw directive with no rumor uses this credibility on the fake curve,M06,fraction
+M14 fake arc price drawdown (ASSUMED),0.62,ASSUMED,§5 M14 fake price fall at full strength by the end of the horizon,M14,fraction
+M14 fake arc attention price weight (ASSUMED),0.06,ASSUMED,§5 M14 fake attention discount applied as a level not a compound,M14,fraction
+M29 fake poster credibility (ASSUMED),"ui-user:0.28,group-chat-anon:0.40,vip:0.55,treasury-desk:0.55,short-seller:0.60,journalist:0.70,founder-circle:0.72,bank-ceo:0.85,major-shareholder:0.85,vc-partner:0.90,regulator:0.90",ASSUMED,"§5 M29 live rumor credibility by poster role; ordinal judgement from documented market-pull cases (SVB/Founders Fund 2023, Credit Suisse/SNB 2023, AP hack 2013, Hindenburg/Adani 2023, Metro Bank 2019, Ante 2023 Musk effect, Cookson et al. 2023); a price move is not a credibility value; see docs/research/rumor-roles.md",M29,
+M29 fake default rumor credibility (ASSUMED),0.45,ASSUMED,§5 M29 credibility when the poster is not in the map,M29,fraction
+M41 fake pitch withdrawal cash fraction (ASSUMED),0.02,ASSUMED,§5 M41 fake VIP move as a fraction of opening cash; real M41 amounts stay on their own rows,M41,fraction
+Local LLM default model (ASSUMED),Meta-Llama-3.1-8B-Instruct-Q4_K_M,ASSUMED,§7.1 local OpenAI-compatible backend; any model name works when set,M33,model
+Local LLM OpenAI base URL (ASSUMED),http://127.0.0.1:8080/v1,ASSUMED,§7.1 llama.cpp server or Ollama OpenAI shim,M33,url
+Local LLM concurrency semaphore (ASSUMED),4 requests in flight,ASSUMED,§7.1 caps parallel local HTTP calls on a desktop GPU,M33,count
+Local LLM request timeout seconds (ASSUMED),120,ASSUMED,§7.1 local HTTP client timeout,M33,seconds
+Local LLM weights directory (ASSUMED),models/gguf,ASSUMED,§7.1 GGUF root (repo-relative default); override with STAMPEDE_LOCAL_LLM_WEIGHTS; tests must not open this path,M33,path
+Non-bank E13 Meta peak-to-trough fraction,0.2639009287925697,VERIFIED,"(323.00-237.76)/323.00 from Yahoo Finance daily closes on 2022-02-02 and 2022-02-03 https://finance.yahoo.com/quote/META/history/?filter=history&frequency=1d&includeAdjustedClose=true&interval=1d&period1=1509408000&period2=1667088000",M27,fraction
+Non-bank E13 Meta days to bottom,1,VERIFIED,"One trading session. CNBC: biggest one-day drop on 2022-02-03 https://www.cnbc.com/2022/02/03/facebook-shares-plummet-22percent-after-reporting-weak-guidance.html",M27,trading days
+Non-bank E13 Meta volume multiple,3.218018656033446,VERIFIED,"188119900 shares on 2022-02-03 divided by 58458300 shares on 2022-02-02. Yahoo Finance history https://finance.yahoo.com/quote/META/history/?filter=history&frequency=1d&includeAdjustedClose=true&interval=1d&period1=1509408000&period2=1667088000",M27,multiple
+Non-bank E14 GameStop intraday high USD,483,VERIFIED,"January 28 2021 intraday high. https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,USD
+Non-bank E14 GameStop month-start price USD,17.25,VERIFIED,"Price at the start of January 2021. https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,USD
+Non-bank E14 GameStop Jan 25 volume note,more than 175 million shares versus a 29.8 million 30-day average,VERIFIED,"Dow Jones market data as cited on https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,shares
+Non-bank E14 GameStop decline by Feb 2 note,more than 80 percent off the prior-week intraday peak,VERIFIED,"https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,fraction
+Non-bank E14 GameStop peak-to-trough fraction,UNSET,UNSET,"Wikipedia gives more than 80 percent off the intraday peak by February 2 2021 and does not publish the trough price. https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,fraction
+Non-bank E14 GameStop days to bottom,UNSET,UNSET,"The cited page says prices kept falling after February 2 2021 and does not name a single trough date. https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,days
+Non-bank E14 GameStop volume multiple,UNSET,UNSET,"January 25 volume is stated as more than 175 million shares against a 29.8 million 30-day average so the peak multiple is not a point value. https://en.wikipedia.org/wiki/GameStop_short_squeeze",M27,multiple
+Non-bank E15 LUNA price 2022-05-05 USD,87,VERIFIED,"https://arxiv.org/html/2207.13914v3",M27,USD
+Non-bank E15 LUNA price 2022-05-13 USD,less than 0.00005,VERIFIED,"https://arxiv.org/html/2207.13914v3",M27,USD
+Non-bank E15 LUNA April 5 2022 peak USD,119.18,VERIFIED,"https://www.nber.org/system/files/working_papers/w31160/w31160.pdf",M27,USD
+Non-bank E15 LUNA collapse window note,within three days the ecosystem value plummeted to zero,VERIFIED,"https://www.nber.org/system/files/working_papers/w31160/w31160.pdf",M27,days
+Non-bank E15 LUNA peak-to-trough fraction,0.9999996,SOURCED,"Derived from two VERIFIED rows: April 5 2022 peak 119.18 USD (NBER w31160) and May 13 2022 price below 0.00005 USD (arxiv 2207.13914). 1 - 0.00005/119.18 = 0.9999996. The trough was at or below 0.00005, so the true fraction is at least this. Days to bottom stays UNSET: the cited windows disagree (3 days versus May 5 to 13).",M27,fraction
+Non-bank E15 LUNA days to bottom,UNSET,UNSET,"NBER w31160 says three days to zero; the arxiv price span is 5 May to 13 May. The windows disagree so the point target stays unset. https://www.nber.org/system/files/working_papers/w31160/w31160.pdf",M27,days
+Non-bank E15 LUNA volume multiple,UNSET,UNSET,"The cited NBER and arxiv papers do not give a crash-day volume divided by a baseline. https://www.nber.org/system/files/working_papers/w31160/w31160.pdf",M27,multiple
+Non-bank E16 SPX peak close,3386.15,VERIFIED,"Close on 2020-02-19. https://www.yardenibook.com/pub/15.4appendix.pdf",M27,index
+Non-bank E16 SPX trough close,2237.40,VERIFIED,"Close on 2020-03-23. https://www.yardenibook.com/pub/15.4appendix.pdf",M27,index
+Non-bank E16 SPX peak-to-trough fraction,0.339,VERIFIED,"Printed loss of 33.9 percent from 2020-02-19 to 2020-03-23. https://www.yardenibook.com/pub/15.4appendix.pdf",M27,fraction
+Non-bank E16 SPX days to bottom,33,VERIFIED,"Calendar days including weekends and holidays per the Yardeni footnote. https://www.yardenibook.com/pub/15.4appendix.pdf",M27,days
+Non-bank E16 SPX volume multiple,UNSET,UNSET,"Appendix 15.4 lists price and days and not volume. https://www.yardenibook.com/pub/15.4appendix.pdf",M27,multiple
+Non-bank rates target is the S&P 500 path,index path compared with the simulated stock path,ASSUMED,E16 numbers are the S&P 500; the harness still reads the scenario bank stock,M27,
+Non-bank equity rumor credibility,0.75,ASSUMED,explicit preset credibility; classify_rumor_market does not overwrite it,M27,fraction
+Non-bank equity rumor reach,8000,ASSUMED,explicit preset reach,M27,count
+Non-bank crypto rumor credibility,0.85,ASSUMED,explicit preset credibility; classify_rumor_market does not overwrite it,M27,fraction
+Non-bank crypto rumor reach,12000,ASSUMED,explicit preset reach,M27,count
+Non-bank rates rumor credibility,0.55,ASSUMED,explicit preset credibility; classify_rumor_market does not overwrite it,M27,fraction
+Non-bank rates rumor reach,3000,ASSUMED,explicit preset reach,M27,count
+Non-bank rates path knots,0:0.045;60:0.09,ASSUMED,modelling guess for a hike on the simulated policy path,M27,knots
+Non-bank rates unemployment shock,0.08,ASSUMED,modelling guess for the unemployment shock on the rates preset,M27,fraction
+Non-bank rates unemployment shock minute,1,ASSUMED,tick when the unemployment shock is applied,M27,minutes
+Non-bank calibration parameter dimension,3,ASSUMED,drawdown days and volume scales on the read price path,M27,count
+Non-bank CMA-ES population size,4,ASSUMED,tiny fake-mode default so an accidental launch stays short,M27,count
+Non-bank CMA-ES max generations,2,ASSUMED,tiny fake-mode default so an accidental launch stays short,M27,count
+Non-bank CMA-ES initial sigma,0.2,ASSUMED,same search width as the SVB fake-mode fitter,M27,fraction
+Non-bank CMA-ES sigma floor,0.03,ASSUMED,same floor as the SVB fake-mode fitter,M27,fraction
+Non-bank CMA-ES sigma decay,0.97,ASSUMED,same decay as the SVB fake-mode fitter,M27,fraction
+Non-bank CMA-ES elite minimum,2,ASSUMED,minimum number of low-loss samples averaged each generation,M27,count
+Non-bank eval simulation minutes,12,ASSUMED,tiny fake-mode horizon,M27,minutes
+Non-bank drawdown objective weight,1,ASSUMED,weight on peak-to-trough squared log-error,M27,weight
+Non-bank days objective weight,1,ASSUMED,weight on days-to-bottom squared log-error,M27,weight
+Non-bank volume objective weight,1,ASSUMED,weight on volume-multiple squared log-error,M27,weight
+Non-bank price scale coefficient,0.8,ASSUMED,exponential scale on the read path; same coefficient shape as the E1 fake amount scale,M27,coefficient
+Non-bank price scale center,0.5,ASSUMED,center of the unit-interval search vector,M27,fraction
+Non-bank sim minutes per day,390,ASSUMED,"SVB-29: one simulated trading session (390 minutes) is one day, the convention of E13 (1 trading day) and the E16 trading-day row (23). Was 1440 (calendar minutes), which put both days-to-bottom targets out of reach of a 390-minute run and made them constant penalties.",M27,minutes
+M27 GPU sim E1 relative tolerance,1e-6,ASSUMED,§5 M27 batched eval may differ from the per-depositor sum by float order only,M27,fraction
+M27 GPU sim array budget bytes,3000000000,ASSUMED,§9 M27 one lane group: 256 lanes × 100k depositors in float64 is about 11 MB per lane (under 3 GB),M27,bytes
+M27 calibration uses scripted drawdown,no,ASSUMED,stage-1 stock driven by attention and impact only.,M27,
+M03 feedback gain (ASSUMED),0.35,ASSUMED,SVB-06 prior: news impulse per requested-share term,M03,1/share
+M03 news half-life minutes,60,ASSUMED,SVB-06 news decay 0.5**(dt/60),M03,minutes
+M03 news request scale,8,ASSUMED,SVB-06 news addend scale on d_requested_share,M03,1/share
+M14 price impact (ASSUMED),1.18464,ASSUMED,"SVB-36: value carried from m27-e1-svb26-20261101 seed=3060 (fit before SVB-28 decide-once, to the stock target); not refit since the stock ratio is reported, not fitted.",M14,1/share
+M14 price impact (ASSUMED) min,0.3,ASSUMED,SVB-25 lower bound on price impact,M14,1/share
+M14 price impact (ASSUMED) max,4,ASSUMED,SVB-25 upper bound on price impact,M14,1/share
+M14 price impact cap per minute,0.01,ASSUMED,SVB-25 max |log-price| step per simulated minute (both directions),M14,1/minute
+M14 price impact noise,0,ASSUMED,SVB-06 additive noise on the impact move (zero for determinism),M14,log-return
+M14 attention reference level,1.0,ASSUMED,"SVB-25: no peak attention is exposed in the SVB scenario; tanh/clip attention is already in [0 1] so the reference is 1.0",M14,attention
+M06 breaking-point median (ASSUMED),0.45,ASSUMED,SVB-06 fixed median threshold; redundant with worry weights,M06,worry
+M06 breaking-point dispersion (ASSUMED),1,ASSUMED,SVB-06 prior: stretch of thresholds around the fixed median,M06,multiplier
+Depositor mobile share of uninsured deposits (FIT),0.963547,FITTED,m27-e1-svb37-20261102 seed=3060,M06,fraction
+Depositor mobile share of uninsured deposits (FIT) min,0.30,ASSUMED,SVB-24 lower bound on mobile share,M06,fraction
+Depositor mobile share of uninsured deposits (FIT) max,1.00,ASSUMED,SVB-24 upper bound on mobile share,M06,fraction
+M06 awareness media rate (FIT),0.001,FIT,"SVB-33 per-minute hazard at attention 1; SVB-35: held at prior, not fitted",M06,1/min
+M06 awareness media rate (FIT) min,0.0001,ASSUMED,SVB-33 bound,M06,1/min
+M06 awareness media rate (FIT) max,0.01,ASSUMED,SVB-33 bound,M06,1/min
+M06 awareness word-of-mouth rate (ASSUMED),0.05,ASSUMED,SVB-33 per-minute hazard per unit decided-contact share at the prior contact weight; scaled by w1/w1_prior,M06,1/min
+M06 awareness news rate (ASSUMED),0.05,ASSUMED,SVB-33 per-minute hazard per unit feedback-news level (feedback gain enters via news),M06,1/min
+M07 decision-to-request rate (FIT),0.00210008,FITTED,m27-e1-svb37-20261102 seed=3060,M07,1/min
+M07 decision-to-request rate (FIT) min,0.0002,ASSUMED,SVB-35 bound,M07,1/min
+M07 decision-to-request rate (FIT) max,0.05,ASSUMED,SVB-35 bound,M07,1/min
+Non-bank daily deposit-request bound,0.001,ASSUMED,0.26 playbook: a market event about another company may nudge bank stocks but deposit requests stay within 0.1% of deposits per day,M27,fraction
+Non-bank daily deposit-request bound penalty weight,1,ASSUMED,squared relative excess of the daily request fraction over the ASSUMED 0.1% bound,M27,weight
+Non-bank E13 fitted behavioral vector (normalized),UNSET,UNSET,"SVB-51 (approved Nov 3): cleared. It held the 16-value nonbank-svb26-c-20261101 vector (objective 7.47322), from before the 17-dimension fit set and SVB-35..37, so it no longer matched the model. No code reads this row; an approved persist_fit --kind nonbank writes it again.",M27,normalized vector
+Validation target value: E5 Signature first-day requested fraction,0.249,SOURCED,"E5 (NYDFS): 18.6B USD withdrawn on day one = 20% of deposits, plus about 1,000 wires worth 4.6B USD pending. Requested >= 0.20 x (18.6 + 4.6) / 18.6 = 0.249. A lower bound: requests never submitted aren't counted. SVB-27d.",M27,fraction
+M06 withdrawal decision mode (ASSUMED),once,ASSUMED,"SVB-28: each depositor decides at most once. Hard gates request the segment withdraw fraction of the uninsured gap once; soft gates ratchet a decided probability and request only its increase against the initial uninsured balance. 'repeat' is the legacy per-tick take, which compounded small soft-gate probabilities and set 'already' for everyone on tick 1, so every book drained to the mobile-share cap by minute 30.",M06,mode
+Non-bank E16 SPX trading days to bottom,23,SOURCED,"Derived from the VERIFIED 2020-02-19 peak close and 2020-03-23 trough close: 23 NYSE trading days after the peak through the trough (Feb 20-28: 7; Mar 2-20: 15; Mar 23: 1), no market holidays in the window. The calendar-day row (33) stays for reference.",M27,trading days
+M34 rumor judge Grok model,grok-4.1-fast,ASSUMED,§7 M34 rumor judge; same fast JSON model as M25 and M04,M34,model
+M34 rumor judge live,true,ASSUMED,"§7.1 M34 the judge asks the model only when this is true and a live JSON backend is enabled; offline always uses the lexicon",M34,bool
+M34 rumor judge timeout seconds,4,ASSUMED,"§7.1 M34 one judge call per new text; on timeout the lexicon judgment is used and nothing is cached",M34,seconds
+M34 rumor judge max specificity deviation,0.25,ASSUMED,"§5 M34 model specificity is held within this distance of lexicon hits/4, so text cannot buy the whole specificity bonus",M34,fraction
+M34 rumor judge call-to-action strength levels,1,ASSUMED,"§5 M34 a judged call to withdraw, move or sell now raises fear strength by this many levels; SVB: VC advice to move money preceded the $42B request day (Axios 2023-03-14)",M34,levels
+M34 rumor judge run-claim minimum strength,medium,ASSUMED,"§5 M34 a judged solvency, liquidity or regulatory claim is at least this fear strength",M34,level
+M03 role exposure multiplier enabled,false,ASSUMED,"ADR-093 flag; off keeps the post impulse credibility x M03 rumor exposure, as at b674fa7; CPU engine only (gpu_sim/gpu_full ignore it)",M03,bool
+M03 role exposure multipliers,"ui-user:0.5,group-chat-anon:1,vip:3,treasury-desk:1,short-seller:1.5,journalist:2,founder-circle:1,bank-ceo:1.5,major-shareholder:1.5,vc-partner:1,regulator:2",ASSUMED,"ADR-093 reach outside the sim graph, ordinal not measured: vip highest (Ante 2023, Musk tweets with tens of millions of followers moved BTC about 12-17%); journalist and regulator wide pickup (AP hack 2013, about 1.9M followers, $136B in minutes); short-seller, CEO and top shareholder via media coverage (Hindenburg/Adani 2023, SNB on Bloomberg TV 2023); VC, founder circle, treasury desk act through direct and group channels, so their pull is credibility and action (Founders Fund 2023, Cookson et al.), not extra reach; ui-user few followers; see docs/research/role-reach.md",M03,multiplier
+M03 role source node enabled,false,ASSUMED,"ADR-093 flag; off keeps role ids unmapped so they post as the hub, as at b674fa7; CPU engine only",M03,bool
+M03 role source nodes,"ui-user:small-account,group-chat-anon:small-account,vip:hub-public-1,treasury-desk:node-2,short-seller:hub-public-1,journalist:hub-public-1,founder-circle:node-2,bank-ceo:hub-public-1,major-shareholder:hub-public-1,vc-partner:node-2,regulator:hub-public-1",ASSUMED,"ADR-093 fallback-graph nodes (option a): hub-public-1 is the public broadcast hub (media, VIP, officials), node-2 is the professional-tie hub that treasurers hear (advisors: VC, founder circle, treasury desk), small-account has one public follower; an id not in the installed graph keeps the hub",M03,node id
+M03 rumor strength impulse enabled,false,ASSUMED,"ADR-094 flag; off keeps tone out of M03 (ADR-001); on, the post impulse also scales by the claim's offline lexicon strength; CPU engine only",M03,bool
+M03 rumor strength impulse multipliers,"low:0.8,medium:1,high:1.25",ASSUMED,"ADR-094 modest by design: Cookson et al. find negative sentiment does not amplify run risk, and lexicon strength counts fear words; medium is 1 so a typical claim is unchanged",M03,multiplier
+M03 exaggeration feedback enabled,false,ASSUMED,"ADR-095 flag; off keeps RumorMutated exaggeration out of exposure, as at b674fa7; on, reposts after an accepted mutation add min(1 + gain x exaggeration, cap) times the usual exposure; CPU engine only",M03,bool
+M03 exaggeration feedback gain,1,ASSUMED,"ADR-095 placeholder: with the offline exaggeration 0.25 a mutated rumor reposts at 1.25x; false and novel news spreads farther and faster (Vosoughi, Roy and Aral, Science 2018), which motivates the sign, not the size",M03,1/score
+M03 exaggeration feedback cap,1.5,ASSUMED,"ADR-095 upper bound on the repost factor so a high Grok exaggeration score cannot run away",M03,multiplier
+M29 live engine modules,"M02,M03,M05,M06,M07,M08,M09,M14",ASSUMED,"SVB-50 ADR-098: with STAMPEDE_MODE=real the live server runs the calibrated module set (calibration.fit real_calibration_modes: M02,M03,M05,M06,M07,M08,M09) plus the M14 order book for the price; every other module stays fake",M29,module ids
+M29 live crowd wavering worry threshold,0.5,ASSUMED,SVB-50 ADR-098: a depositor who has not withdrawn shows as wavering when M06 worry (a probability) is at least this; 0.5 = more likely worried than not,M29,probability
+Non-bank M06 worry bias (ASSUMED),-2.4,ASSUMED,SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on M06 worry bias (ASSUMED); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().,M06,logit
+Non-bank depositor mobile share of uninsured deposits (ASSUMED),0.878938,ASSUMED,SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on Depositor mobile share of uninsured deposits (FIT); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().,M06,fraction
+Non-bank M07 decision-to-request rate (ASSUMED),0.0016667,ASSUMED,SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on M07 decision-to-request rate (FIT); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().,M07,1/min
+Non-bank M07 capacity multiplier (ASSUMED),4.20575,ASSUMED,SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on M07 capacity multiplier (FIT); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().,M07,multiplier
+M07 stop settlement after closure,false,ASSUMED,"SVB-53 (D4) ADR-100 flag, default off (off = logs byte-identical to bc4c1c2). On: M07 publishes no PaymentSettled after this bank's BankClosed and freezes its queues. Reason: once a regulator closes a bank, payments stop until a receiver or bridge bank reopens (SVB closed Fri Mar 10 2023; the FDIC bridge bank opened Mon Mar 13). Can move settled numbers after a closure, so it stays off for calibration.",M07,bool
+M08 SVB-like opening book enabled,false,ASSUMED,"SVB-56 ADR-102 flag, default off: off keeps the old opening slices (cash 0.1%, securities 0.4% of deposits) so the SVB fit and seeded logs do not move. On (calibration) needs explicit maintainer approval and a refit check: M20 closes on M08 CET1, so closure timing can change.",M08,bool
+M08 SVB-like opening cash fraction of deposits,0.0797359,SOURCED,"SVB Financial Group Form 10-K FY2022, Consolidated Balance Sheets at Dec 31 2022 (SEC EDGAR accession 0000719739-23-000021, XBRL R3): cash and cash equivalents $13,803M / total deposits $173,109M = 0.0797359.",M08,fraction
+M08 SVB-like opening securities fraction of deposits,0.678128,SOURCED,"SVB Financial Group Form 10-K FY2022, Consolidated Balance Sheets at Dec 31 2022 (SEC EDGAR accession 0000719739-23-000021, XBRL R3): AFS securities at fair value $26,069M + HTM securities at amortized cost $91,321M (HTM fair value $76,169M) = $117,390M / total deposits $173,109M = 0.678128. Excludes non-marketable equity securities ($2,664M).",M08,fraction
+M29 live SVB-like opening book,true,ASSUMED,SVB-56 ADR-102: Sebastian decided (Nov 3) the live demo bank starts with more cash; the live server's real mode builds M08 with the SVB-like opening book. Calibration and seeded runs are unaffected.,M29,bool
+M03 uses M02 network,false,ASSUMED,"SVB-57 (D2) ADR-103 flag, default off: off keeps M03 on the 16-node fallback graph (logs and seeded hashes unchanged). On, M03 installs the real M02 depositor network (public/group/professional CSR layers, M02 node credibility) on its first step; every real-mode log and real-M03 hash changes. CPU engine only (refused under GPU calibration).",M03,bool
+M06 depositors ignore stock price,false,ASSUMED,"SVB-58 ADR-104 flag, default off: off keeps M06's stock-return feature (calibration reads MarketFake's attention-only price). On, M06 ignores PriceTick, so an uncalibrated price model cannot feed worry. Refused under GPU calibration when on in the registry.",M06,bool
+M29 live depositors ignore stock price,true,ASSUMED,"SVB-58 ADR-104 (item 6, option B): the live server's real-mode engine turns on M06 depositors ignore stock price, so the real M14 order book shows the price but does not drive depositor worry; in the sandbox a VC rumor then requests about 2/7/19/78% of eligible deposits at minutes 10/30/60/120 instead of all by minute 20.",M29,bool
+M03 cure rumor enabled,false,ASSUMED,"SVB-59 ADR-105 flag, default off (ADR-001 exception): on, a RumorPosted whose claim has positive lexicon tone is not spread; it scales the bank's node attention by 1 - M03 cure attention cut x credibility.",M03,bool
+M03 cure attention cut,0.5,ASSUMED,"SVB-59 ADR-105 placeholder: a cure is weaker than a panic rumor (reassurance mostly failed: Credit Suisse Oct 2022, SVB Mar 2023), so a credibility-0.9 cure removes 45% of current attention.",M03,fraction
+M06 cure rumor worry shift enabled,false,ASSUMED,"SVB-59 ADR-105 flag, default off: on, a positive-tone RumorPosted applies the statement worry shifts scaled by M06 cure rumor worry factor x credibility; no redeposit.",M06,bool
+M06 cure rumor worry factor,0.5,ASSUMED,SVB-59 ADR-105 placeholder: half the M06 statement shifts at credibility 1 (cure weaker than an official statement).,M06,multiplier
+M29 live cure rumor,true,ASSUMED,"SVB-59 ADR-105: the live server's real-mode engine turns on both cure flags (Nov 3 design: any role may post a cure, effect scales with credibility, weaker than a panic rumor, no redeposit, price only through fewer withdrawals).",M29,bool
+M29 live real crisis sim minutes,1441,ASSUMED,"SVB-61 ADR-106: the real-mode live window follows SVB's timeline: $42B (~24% of $173.1B deposits) requested on Thu Mar 9 2023 and $100B more queued by the Fri Mar 10 open, when regulators closed the bank (Barr, Senate Banking testimony, Mar 28 2023; House FSC hearing timeline). 1440 sim minutes = day one plus the night to the next open, the E1 horizon (0.249 by day-one close, 0.81 by next open). Fake mode keeps M29 UI live crisis sim minutes (120). P-A: 1441 ticks, so the regulator's closure at minute 1440 (SVB-64) is shown: it is the 1441st step (diag-11 v2: bank_closed false through 1440 completed steps, true at 1441).",M29,minutes
+M06 attention ceiling by credibility enabled,false,ASSUMED,"SVB-62 ADR-107 flag, default off (off = logs and the SVB fit byte-identical). On, M06 clips the bank attention level at min(1, credibility / reference) for the strongest live panic rumor instead of at 1, so a weak poster cannot saturate depositor attention like a strong one (role washout: M03 levels pass 1 within minutes for any credibility). Refused under GPU calibration when on in the registry.",M06,bool
+M06 attention ceiling reference credibility,0.8,ASSUMED,"SVB-62 ADR-107: the SVB fit rumor's credibility (calibration/fit.py _default_svb_scenario, 0.8); rumors at or above it keep the fitted clip at 1, so the fitted SVB curve is unchanged for them.",M06,credibility
+M29 live attention ceiling by credibility,true,ASSUMED,SVB-62 ADR-107: the live server's real-mode engine turns on the M06 credibility ceiling (Sebastian approved Nov 3) so poster roles and presets differ visibly: in the sandbox a credibility-0.72 rumor requests 56% and a 0.55 rumor 9% of a 0.9 rumor's day-one total.,M29,bool
+M29 live price paced to SVB day-one drop,true,ASSUMED,"SVB-63 ADR-108 (Sebastian, Nov 3): live real mode shows price = opening x (1 - (1 - Calibration E1 day-1 stock target) x min(1, requested / Calibration E1 requested day-one target)), so at SVB's day-one requests (0.249) the price is down SVB's day-one 60% (0.40 close/open, Mar 9 2023). Paced to the engine's run, not a calibrated market model; /health reports it. The M14 order book still runs; depositors do not read either price (SVB-58).",M29,bool
+M29 live earliest closure minute,1440,ASSUMED,"SVB-64 (Sebastian, Nov 3): the live server's regulator holds a closure until the next open, as SVB was closed on the morning of Fri Mar 10 2023 after the Thu Mar 9 run (Barr testimony; House FSC timeline). The fake regulator's capital rule otherwise closed the live bank about minute 352 of day one. Calibration scenarios never set it.",M29,minutes
+M29 live fitted feedback,true,ASSUMED,SVB-65 ADR-110: the live server's real-mode engine runs the fitted attention feedback the GPU calibration paths run (depositors read tanh(mean M03 attention + news); news decays with M03 news half-life minutes and grows with each tick's requested share x M03 feedback gain; gain and price impact from the persisted fit vector at its centre). Calibration real engines (STAMPEDE_CALIBRATION_ENGINE=real) always run it; seeded and default engines never do.,M29,bool
+M29 live insured chip guarantee,true,ASSUMED,"P-A (Sebastian, Nov 3-4): the live preset table's insured chip (regulator: all deposits fully insured) enacts the deposit guarantee, PolicyEnacted guarantee_deposits, at its minute instead of spreading as a rumor; M06 then scales the uninsured gap by M06 guarantee uninsured-gap scale (0), as the FDIC/Treasury/Fed systemic-risk exception guaranteed SVB's deposits on Sun Mar 12 2023 and the run stopped. Depositors who already requested stay withdrawn. Only the chip: calming text typed by a viewer keeps SVB-59's weak cure. Live real mode only; calibration never reads it.",M29,bool
+M29 live trading halt at price floor,true,ASSUMED,"P-A (Sebastian, Nov 3): when the paced live price reaches its floor (Calibration E1 day-1 stock target x opening, SVB's -60%), trading halts for the rest of the run: no more price prints and the market screen shows Trading halted, as SVB's stock was halted before the Mar 10 2023 open. Display only: live depositors ignore the price (SVB-58).",M29,bool
+M29 live buffered playback,true,ASSUMED,"P-A2: in live real mode the server's producer thread steps the engine into a frame buffer and the screens play from it; playback never passes the newest computed minute, so if the engine is slower than 1x (diag-11 v2 on the 3060 desktop: up to 106.9 s for 1441 steps against 105 s of playback) playback slows to the engine's pace and the screens hold the newest frame instead of jumping. The producer leads by at most the head start plus 2 minutes. Off: the old inline stepping on the event loop. Fake mode never buffers.",M29,bool
+M29 live playback head start seconds,2,ASSUMED,"P-A2 (design call, Nov 4; may be raised later): seconds of 1x playback buffered before the screens start, and with 2 minutes the most the engine runs ahead. diag-11 sized a fixed-rate head start at 12 s (max(0, 106.9 - 105) + 10); with playback clamped to the newest computed minute it only has to absorb step jitter, and a smaller lead means a mid-run post (the insured chip) takes effect about 2 s after the minute on screen (27 simulated minutes at 1441/105 per second) instead of about 12 s (165 minutes). Raise it if diag-04 live_smoke --server shows stutter.",M29,s
+M29 live free-text rumors,false,ASSUMED,"PA-C (Sebastian, Nov 4): viewers choose preset rumors only, so the live server refuses typed rumors (POST /api/rumor and the socket rumor command) unless an operator turns this on. A typed rumor with a blocked name still gets its moderation reason. A typed rumor makes the run a scenario, never the fitted 2023 replay.",M29,bool
+M12 emergency line on BTFP terms,false,ASSUMED,"CM-2 ADR-122 flag, default off: off keeps PA-A's assumed credit line (pool 5% of deposits, 1% a minute, 80% of each minute's shortfall, measured on M12's old 0.1% cash slice). On, the line takes the 2023 BTFP terms: pool = the opening securities (M08 SVB-like row), the shortfall share and ramp rows below, and once the line is on, the shortfall is M08's own cash. Nothing changes until emergency_lending is enacted, so the 2023 replay is unchanged.",M12,bool
+M12 BTFP line shortfall share,1.0,SOURCED,"CM-2: the Bank Term Funding Program (announced Mar 12 2023) lent up to the par value of eligible pledged securities with no haircut (Federal Reserve H.4.1 release note, Mar 16 2023), so the line covers the bank's whole cash shortfall until its pool is used. First Republic drew $138.1B (about 80% of its Mar 9 deposits) by Mar 15 (Q1 2023 results).",M12,fraction
+M12 BTFP line ramp fraction of deposits per minute,0.01,ASSUMED,"CM-2: no source gives minute-level draw speed; kept at PA-A's 1% of deposits a minute. For scale: SVB, unprepared, had about $5B pledged and borrowed $5.3B on Mar 9 (Fed review of SVB, Apr 28 2023, p. 60).",M12,fraction
+M29 live emergency line on BTFP terms,true,ASSUMED,"CM-2 ADR-122 (Sebastian, Nov 5: option B): the live server's real-mode engine turns on M12 emergency line on BTFP terms, so every credit-line plan the search tries (and any run of its pick) uses the 2023 BTFP line. Calibration and seeded runs never open the live context.",M29,bool
+M20 bonds sellable near book value fraction of deposits,0.148966,SOURCED,"UF-1: SVB Financial Group 10-K FY2022: available-for-sale securities at fair value $26.069B, over the registry's $175B deposits. AFS bonds are already carried at fair value, so selling them loses little more; selling the HTM bonds ($91.3B at amortized cost, $76.2B fair value) would lock in a $15.1B loss against $16.3B of equity. With M08's cash and the 2023 borrowing rungs, the bank can pay about 25.5% of deposits.",M20,fraction
+M20 closes on what the bank can pay,false,ASSUMED,"UF-1 ADR-128 flag, default off: off, M20 closes on negative cash in its 0.1% slice with no bonds left in its 0.4% slice (about $0.7B of sales). On, it closes a bank whose depositors have asked for more than it can pay (engine/system/can_pay.py: cash + 2023 borrowing + bonds sellable near book value; with the Fed's 2023 program on in time, every bond at face value), the same rule the usefulness ranking uses.",M20,bool
+M29 live regulator closes on what the bank can pay,true,ASSUMED,"UF-1 ADR-128 (Sebastian, Nov 5): the live server's real-mode engine turns on M20 closes on what the bank can pay, so a plan run live from the wall has the outcome the wall shows. Calibration and seeded runs never open the live context.",M29,bool
+M20 HTM bonds fair value fraction of deposits,0.435429,SOURCED,"UF-2: SVB Financial Group 10-K FY2022: held-to-maturity securities at fair value $76.2B (amortized cost $91.3B), over the registry's $175B deposits. With the AFS row, the bonds' market value is $102.3B.",M20,fraction
+M20 discount window margin on pledged bonds,0.95,ASSUMED,"UF-2: the Fed lends a margin times the fair market value of pledged securities (frbdiscountwindow.org collateral valuation); its margins table lists about 94-97% for Treasury and agency securities, a single blend is assumed. Bonds pledged in advance then let the bank pay about 65.3% of deposits.",M20,fraction
+M20 deposits from big banks fraction of deposits,0.171429,SOURCED,"UF-2: on Mar 16 2023, 11 of the largest US banks announced $30B of uninsured deposits into First Republic (Bank of America, Citigroup, JPMorgan Chase and Wells Fargo $5B each; Goldman Sachs and Morgan Stanley $2.5B each; five others $1B each), with the Treasury, Fed, FDIC and OCC welcoming it. $30B over the registry's $175B deposits. First Republic still failed on May 1.",M20,fraction

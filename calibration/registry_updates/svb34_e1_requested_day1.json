@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "Calibration E1 requested day-one target": {
+      "Value": "0.249"
+    }
+  },
+  "append": {
+    "Calibration E1 requested day-one target": {
+      "Status": "ASSUMED",
+      "Source": "SVB timeline: ~$42B of $175B requested Thu Mar 9 2023",
+      "Module": "M27",
+      "Unit": "fraction"
+    }
+  }
+}

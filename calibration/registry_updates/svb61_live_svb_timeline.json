@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M29 live real crisis sim minutes": {
+      "Value": "1440"
+    }
+  },
+  "append": {
+    "M29 live real crisis sim minutes": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "minutes",
+      "Source": "SVB-61 ADR-106: the real-mode live window follows SVB's timeline: $42B (~24% of $173.1B deposits) requested on Thu Mar 9 2023 and $100B more queued by the Fri Mar 10 open, when regulators closed the bank (Barr, Senate Banking testimony, Mar 28 2023; House FSC hearing timeline). 1440 sim minutes = day one plus the night to the next open, the E1 horizon (0.249 by day-one close, 0.81 by next open). Fake mode keeps M29 UI live crisis sim minutes (120)."
+    }
+  }
+}

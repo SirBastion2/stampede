@@ -1,0 +1,28 @@
+{
+  "updates": {
+    "M29 live real crisis sim minutes": {
+      "Value": "1441",
+      "Source": "SVB-61 ADR-106: the real-mode live window follows SVB's timeline: $42B (~24% of $173.1B deposits) requested on Thu Mar 9 2023 and $100B more queued by the Fri Mar 10 open, when regulators closed the bank (Barr, Senate Banking testimony, Mar 28 2023; House FSC hearing timeline). 1440 sim minutes = day one plus the night to the next open, the E1 horizon (0.249 by day-one close, 0.81 by next open). Fake mode keeps M29 UI live crisis sim minutes (120). P-A: 1441 ticks, so the regulator's closure at minute 1440 (SVB-64) is shown: it is the 1441st step (diag-11 v2: bank_closed false through 1440 completed steps, true at 1441)."
+    },
+    "M29 live insured chip guarantee": {
+      "Value": "true"
+    },
+    "M29 live trading halt at price floor": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M29 live insured chip guarantee": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "P-A (Sebastian, Nov 3-4): the live preset table's insured chip (regulator: all deposits fully insured) enacts the deposit guarantee, PolicyEnacted guarantee_deposits, at its minute instead of spreading as a rumor; M06 then scales the uninsured gap by M06 guarantee uninsured-gap scale (0), as the FDIC/Treasury/Fed systemic-risk exception guaranteed SVB's deposits on Sun Mar 12 2023 and the run stopped. Depositors who already requested stay withdrawn. Only the chip: calming text typed by a viewer keeps SVB-59's weak cure. Live real mode only; calibration never reads it."
+    },
+    "M29 live trading halt at price floor": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "P-A (Sebastian, Nov 3): when the paced live price reaches its floor (Calibration E1 day-1 stock target x opening, SVB's -60%), trading halts for the rest of the run: no more price prints and the market screen shows Trading halted, as SVB's stock was halted before the Mar 10 2023 open. Display only: live depositors ignore the price (SVB-58)."
+    }
+  }
+}

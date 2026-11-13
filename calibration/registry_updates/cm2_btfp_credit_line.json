@@ -1,0 +1,42 @@
+{
+  "updates": {
+    "M12 emergency line on BTFP terms": {
+      "Value": "false"
+    },
+    "M12 BTFP line shortfall share": {
+      "Value": "1.0"
+    },
+    "M12 BTFP line ramp fraction of deposits per minute": {
+      "Value": "0.01"
+    },
+    "M29 live emergency line on BTFP terms": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M12 emergency line on BTFP terms": {
+      "Status": "ASSUMED",
+      "Module": "M12",
+      "Unit": "bool",
+      "Source": "CM-2 ADR-122 flag, default off: off keeps PA-A's assumed credit line (pool 5% of deposits, 1% a minute, 80% of each minute's shortfall, measured on M12's old 0.1% cash slice). On, the line takes the 2023 BTFP terms: pool = the opening securities (M08 SVB-like row), the shortfall share and ramp rows below, and once the line is on, the shortfall is M08's own cash. Nothing changes until emergency_lending is enacted, so the 2023 replay is unchanged."
+    },
+    "M12 BTFP line shortfall share": {
+      "Status": "SOURCED",
+      "Module": "M12",
+      "Unit": "fraction",
+      "Source": "CM-2: the Bank Term Funding Program (announced Mar 12 2023) lent up to the par value of eligible pledged securities with no haircut (Federal Reserve H.4.1 release note, Mar 16 2023), so the line covers the bank's whole cash shortfall until its pool is used. First Republic drew $138.1B (about 80% of its Mar 9 deposits) by Mar 15 (Q1 2023 results)."
+    },
+    "M12 BTFP line ramp fraction of deposits per minute": {
+      "Status": "ASSUMED",
+      "Module": "M12",
+      "Unit": "fraction",
+      "Source": "CM-2: no source gives minute-level draw speed; kept at PA-A's 1% of deposits a minute. For scale: SVB, unprepared, had about $5B pledged and borrowed $5.3B on Mar 9 (Fed review of SVB, Apr 28 2023, p. 60)."
+    },
+    "M29 live emergency line on BTFP terms": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "CM-2 ADR-122 (Sebastian, Nov 5: option B): the live server's real-mode engine turns on M12 emergency line on BTFP terms, so every credit-line plan the search tries (and any run of its pick) uses the 2023 BTFP line. Calibration and seeded runs never open the live context."
+    }
+  }
+}

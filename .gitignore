@@ -1,0 +1,47 @@
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+.venv/
+dist/
+build/
+node_modules/
+*.tsbuildinfo
+.stampede/
+calibration/diagnostics/*.json
+calibration/diagnostics/*/
+!calibration/diagnostics/identifiability-sweep.json
+
+# batch table output (scripts/batch_table.py)
+data/live_batch.json
+# runtime data, caches, secrets, weights
+data/
+data.before_*/
+calibration/runs/
+validation_logs/
+*.sqlite
+*.sqlite3
+*.db
+.env
+.env.*
+*.pem
+*.key
+*.safetensors
+*.bin
+*.pt
+
+# local model weights and QLoRA training runs
+/models/
+/training_runs/
+*.gguf
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# UI build output
+ui/**/dist/
+.hypothesis/

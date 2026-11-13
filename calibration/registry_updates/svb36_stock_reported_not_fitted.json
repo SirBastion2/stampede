@@ -1,0 +1,16 @@
+{
+  "updates": {
+    "Calibration E1 day-1 stock objective weight": {
+      "Value": "0",
+      "Source": "SVB-36: the E1 stock ratio is reported, not fitted. In the calibration stock path the price falls only through withdrawal price impact (no scripted drawdown, SVB-14), so a 0.40 close needs ~0.46 requested by close and cannot coexist with 0.249 requested by close (price impact at its upper bound 4 gives 0.71-0.81 at 0.15-0.28 requested). SVB's real -60% on Mar 9 2023 followed the Mar 8 loss and capital-raise announcement, which this path does not model."
+    },
+    "Calibration identifiable parameter indices": {
+      "Value": "7,15,16",
+      "Source": "SVB-36: worry bias and h set day-1 timing; mobile share sets next-open. Price impact (14) left the fit set with the stock term (SVB-35 set was 7,14,15,16)."
+    },
+    "M14 price impact (ASSUMED)": {
+      "Status": "ASSUMED",
+      "Source": "SVB-36: value carried from m27-e1-svb26-20261101 seed=3060 (fit before SVB-28 decide-once, to the stock target); not refit since the stock ratio is reported, not fitted."
+    }
+  }
+}

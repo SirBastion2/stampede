@@ -1,0 +1,42 @@
+{
+  "updates": {
+    "Non-bank M06 worry bias (ASSUMED)": {
+      "Value": "-2.4"
+    },
+    "Non-bank depositor mobile share of uninsured deposits (ASSUMED)": {
+      "Value": "0.878938"
+    },
+    "Non-bank M07 decision-to-request rate (ASSUMED)": {
+      "Value": "0.0016667"
+    },
+    "Non-bank M07 capacity multiplier (ASSUMED)": {
+      "Value": "4.20575"
+    }
+  },
+  "append": {
+    "Non-bank M06 worry bias (ASSUMED)": {
+      "Status": "ASSUMED",
+      "Source": "SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on M06 worry bias (ASSUMED); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().",
+      "Module": "M06",
+      "Unit": "logit"
+    },
+    "Non-bank depositor mobile share of uninsured deposits (ASSUMED)": {
+      "Status": "ASSUMED",
+      "Source": "SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on Depositor mobile share of uninsured deposits (FIT); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().",
+      "Module": "M06",
+      "Unit": "fraction"
+    },
+    "Non-bank M07 decision-to-request rate (ASSUMED)": {
+      "Status": "ASSUMED",
+      "Source": "SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on M07 decision-to-request rate (FIT); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().",
+      "Module": "M07",
+      "Unit": "1/min"
+    },
+    "Non-bank M07 capacity multiplier (ASSUMED)": {
+      "Status": "ASSUMED",
+      "Source": "SVB-52 (D3) ADR-099: pre-SVB-fit value that 4ed6ad9 (svb37 persist) replaced on M07 capacity multiplier (FIT); held fixed so non-bank presets (calibration/nonbank.py) do not inherit the SVB fit. Read only inside engine.depositor_rows.nonbank_depositor_rows().",
+      "Module": "M07",
+      "Unit": "multiplier"
+    }
+  }
+}

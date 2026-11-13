@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M29 live fitted feedback": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M29 live fitted feedback": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "SVB-65 ADR-110: the live server's real-mode engine runs the fitted attention feedback the GPU calibration paths run (depositors read tanh(mean M03 attention + news); news decays with M03 news half-life minutes and grows with each tick's requested share x M03 feedback gain; gain and price impact from the persisted fit vector at its centre). Calibration real engines (STAMPEDE_CALIBRATION_ENGINE=real) always run it; seeded and default engines never do."
+    }
+  }
+}

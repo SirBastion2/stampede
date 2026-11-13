@@ -1,0 +1,7 @@
+# QLoRA training venv ($STAMPEDE_TRAIN_ROOT/venvs/qlora, default ./training_runs/venvs/qlora). Separate from the simulation env.
+# Install torch with the CUDA build that matches the 3060's driver first (see pytorch.org), then:
+transformers>=4.43     # 4.43 is the first release with Llama 3.1 rope scaling
+peft>=0.12
+bitsandbytes>=0.43
+accelerate>=0.33
+safetensors

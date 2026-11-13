@@ -1,0 +1,24 @@
+{
+  "updates": {
+    "M06 depositors ignore stock price": {
+      "Value": "false"
+    },
+    "M29 live depositors ignore stock price": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M06 depositors ignore stock price": {
+      "Status": "ASSUMED",
+      "Module": "M06",
+      "Unit": "bool",
+      "Source": "SVB-58 ADR-104 flag, default off: off keeps M06's stock-return feature (calibration reads MarketFake's attention-only price). On, M06 ignores PriceTick, so an uncalibrated price model cannot feed worry. Refused under GPU calibration when on in the registry."
+    },
+    "M29 live depositors ignore stock price": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "SVB-58 ADR-104 (item 6, option B): the live server's real-mode engine turns on M06 depositors ignore stock price, so the real M14 order book shows the price but does not drive depositor worry; in the sandbox a VC rumor then requests about 2/7/19/78% of eligible deposits at minutes 10/30/60/120 instead of all by minute 20."
+    }
+  }
+}

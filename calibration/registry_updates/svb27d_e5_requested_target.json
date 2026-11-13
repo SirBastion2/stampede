@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "Validation target value: E5 Signature first-day requested fraction": {
+      "Value": "0.249"
+    }
+  },
+  "append": {
+    "Validation target value: E5 Signature first-day requested fraction": {
+      "Status": "SOURCED",
+      "Source": "E5 (NYDFS): 18.6B USD withdrawn on day one = 20% of deposits, plus about 1,000 wires worth 4.6B USD pending. Requested >= 0.20 x (18.6 + 4.6) / 18.6 = 0.249. A lower bound: requests never submitted aren't counted. SVB-27d.",
+      "Module": "M27",
+      "Unit": "fraction"
+    }
+  }
+}

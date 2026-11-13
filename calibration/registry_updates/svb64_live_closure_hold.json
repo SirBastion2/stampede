@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M29 live earliest closure minute": {
+      "Value": "1440"
+    }
+  },
+  "append": {
+    "M29 live earliest closure minute": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "minutes",
+      "Source": "SVB-64 (Sebastian, Nov 3): the live server's regulator holds a closure until the next open, as SVB was closed on the morning of Fri Mar 10 2023 after the Thu Mar 9 run (Barr testimony; House FSC timeline). The fake regulator's capital rule otherwise closed the live bank about minute 352 of day one. Calibration scenarios never set it."
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "baseline_day1": 0.6139615225569538,
+  "params": [
+    {
+      "abs_delta": 0.2740503008969145,
+      "day1_high": 0.7305912992312944,
+      "day1_low": 0.4565409983343799,
+      "delta_day1": 0.2740503008969145,
+      "index": 0,
+      "name": "attention_weight"
+    },
+    {
+      "abs_delta": 0.39832721180595265,
+      "day1_high": 0.7862979327556874,
+      "day1_low": 0.3879707209497347,
+      "delta_day1": 0.39832721180595265,
+      "index": 1,
+      "name": "contact_weight"
+    },
+    {
+      "abs_delta": 0.039892441886578034,
+      "day1_high": 0.6356543609306976,
+      "day1_low": 0.5957619190441196,
+      "delta_day1": 0.039892441886578034,
+      "index": 2,
+      "name": "belief_weight"
+    },
+    {
+      "abs_delta": 0.036154316440732415,
+      "day1_high": 0.6337097070319401,
+      "day1_low": 0.5975553905912077,
+      "delta_day1": 0.036154316440732415,
+      "index": 3,
+      "name": "stock_weight"
+    },
+    {
+      "abs_delta": 0.0,
+      "day1_high": 0.6139615225569538,
+      "day1_low": 0.6139615225569538,
+      "delta_day1": 0.0,
+      "index": 4,
+      "name": "directive_weight"
+    },
+    {
+      "abs_delta": 0.013730361629721965,
+      "day1_high": 0.6210882232578614,
+      "day1_low": 0.6073578616281394,
+      "delta_day1": 0.013730361629721965,
+      "index": 5,
+      "name": "payroll_weight"
+    },
+    {
+      "abs_delta": 0.14031647700004657,
+      "day1_high": 0.6871686312880421,
+      "day1_low": 0.5468521542879955,
+      "delta_day1": 0.14031647700004657,
+      "index": 6,
+      "name": "gap_weight"
+    },
+    {
+      "abs_delta": 0.8595530643680608,
+      "day1_high": 0.860277159852505,
+      "day1_low": 0.000724095484444229,
+      "delta_day1": 0.8595530643680608,
+      "index": 7,
+      "name": "worry_bias"
+    },
+    {
+      "abs_delta": 0.6553798312004613,
+      "day1_high": 0.1164291629192912,
+      "day1_low": 0.7718089941197525,
+      "delta_day1": -0.6553798312004613,
+      "index": 8,
+      "name": "contagion_k"
+    },
+    {
+      "abs_delta": 0.21896929539099697,
+      "day1_high": 0.7244823185663942,
+      "day1_low": 0.5055130231753973,
+      "delta_day1": 0.21896929539099697,
+      "index": 9,
+      "name": "amount_scale"
+    },
+    {
+      "abs_delta": 0.028056950311722062,
+      "day1_high": 0.6299181206465495,
+      "day1_low": 0.6018611703348274,
+      "delta_day1": 0.028056950311722062,
+      "index": 10,
+      "name": "belief_strength"
+    },
+    {
+      "abs_delta": 0.03523928200619686,
+      "day1_high": 0.6354112110511809,
+      "day1_low": 0.6001719290449841,
+      "delta_day1": 0.03523928200619686,
+      "index": 11,
+      "name": "signal_attention"
+    }
+  ],
+  "reason": "largest |\u0394 day-1 requested outflow| on a one-at-a-time sweep of the 12-vector with payment caps and closure off",
+  "seed": 0,
+  "selected": [
+    7,
+    8,
+    1,
+    0
+  ],
+  "selected_names": [
+    "worry_bias",
+    "contagion_k",
+    "contact_weight",
+    "attention_weight"
+  ],
+  "softness": 0.15
+}

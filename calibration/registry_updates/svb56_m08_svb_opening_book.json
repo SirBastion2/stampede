@@ -1,0 +1,42 @@
+{
+  "updates": {
+    "M08 SVB-like opening book enabled": {
+      "Value": "false"
+    },
+    "M08 SVB-like opening cash fraction of deposits": {
+      "Value": "0.0797359"
+    },
+    "M08 SVB-like opening securities fraction of deposits": {
+      "Value": "0.678128"
+    },
+    "M29 live SVB-like opening book": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M08 SVB-like opening book enabled": {
+      "Status": "ASSUMED",
+      "Module": "M08",
+      "Unit": "bool",
+      "Source": "SVB-56 ADR-102 flag, default off: off keeps the old opening slices (cash 0.1%, securities 0.4% of deposits) so the SVB fit and seeded logs do not move. On (calibration) needs explicit maintainer approval and a refit check: M20 closes on M08 CET1, so closure timing can change."
+    },
+    "M08 SVB-like opening cash fraction of deposits": {
+      "Status": "SOURCED",
+      "Module": "M08",
+      "Unit": "fraction",
+      "Source": "SVB Financial Group Form 10-K FY2022, Consolidated Balance Sheets at Dec 31 2022 (SEC EDGAR accession 0000719739-23-000021, XBRL R3): cash and cash equivalents $13,803M / total deposits $173,109M = 0.0797359."
+    },
+    "M08 SVB-like opening securities fraction of deposits": {
+      "Status": "SOURCED",
+      "Module": "M08",
+      "Unit": "fraction",
+      "Source": "SVB Financial Group Form 10-K FY2022, Consolidated Balance Sheets at Dec 31 2022 (SEC EDGAR accession 0000719739-23-000021, XBRL R3): AFS securities at fair value $26,069M + HTM securities at amortized cost $91,321M (HTM fair value $76,169M) = $117,390M / total deposits $173,109M = 0.678128. Excludes non-marketable equity securities ($2,664M)."
+    },
+    "M29 live SVB-like opening book": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "SVB-56 ADR-102: Sebastian decided (Nov 3) the live demo bank starts with more cash; the live server's real mode builds M08 with the SVB-like opening book. Calibration and seeded runs are unaffected."
+    }
+  }
+}

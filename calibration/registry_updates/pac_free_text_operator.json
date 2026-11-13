@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M29 live free-text rumors": {
+      "Value": "false"
+    }
+  },
+  "append": {
+    "M29 live free-text rumors": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "PA-C (Sebastian, Nov 4): viewers choose preset rumors only, so the live server refuses typed rumors (POST /api/rumor and the socket rumor command) unless an operator turns this on. A typed rumor with a blocked name still gets its moderation reason. A typed rumor makes the run a scenario, never the fitted 2023 replay."
+    }
+  }
+}

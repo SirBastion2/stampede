@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M06 withdrawal decision mode (ASSUMED)": {
+      "Value": "once"
+    }
+  },
+  "append": {
+    "M06 withdrawal decision mode (ASSUMED)": {
+      "Status": "ASSUMED",
+      "Source": "SVB-28: each depositor decides at most once. Hard gates request the segment withdraw fraction of the uninsured gap once; soft gates ratchet a decided probability and request only its increase against the initial uninsured balance. 'repeat' is the legacy per-tick take, which compounded small soft-gate probabilities and set 'already' for everyone on tick 1, so every book drained to the mobile-share cap by minute 30.",
+      "Module": "M06",
+      "Unit": "mode"
+    }
+  }
+}

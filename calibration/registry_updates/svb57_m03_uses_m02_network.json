@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M03 uses M02 network": {
+      "Value": "false"
+    }
+  },
+  "append": {
+    "M03 uses M02 network": {
+      "Status": "ASSUMED",
+      "Module": "M03",
+      "Unit": "bool",
+      "Source": "SVB-57 (D2) ADR-103 flag, default off: off keeps M03 on the 16-node fallback graph (logs and seeded hashes unchanged). On, M03 installs the real M02 depositor network (public/group/professional CSR layers, M02 node credibility) on its first step; every real-mode log and real-M03 hash changes. CPU engine only (refused under GPU calibration)."
+    }
+  }
+}

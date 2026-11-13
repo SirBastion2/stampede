@@ -1,0 +1,8 @@
+{
+  "updates": {
+    "M14 trading halt duration": {
+      "Status": "DEPRECATED",
+      "Source": "Retired by SVB-27f: the real book (engine/markets/book.py) now reads 'M14 trading halt minutes' = 5 (SOURCED, SEC LULD 5-minute pause), the same row as the gpu-sim and fake halts. Kept for history; nothing reads it."
+    }
+  }
+}

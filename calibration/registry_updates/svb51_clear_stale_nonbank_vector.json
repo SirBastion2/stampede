@@ -1,0 +1,9 @@
+{
+  "updates": {
+    "Non-bank E13 fitted behavioral vector (normalized)": {
+      "Value": "UNSET",
+      "Status": "UNSET",
+      "Source": "SVB-51 (approved Nov 3): cleared. It held the 16-value nonbank-svb26-c-20261101 vector (objective 7.47322), from before the 17-dimension fit set and SVB-35..37, so it no longer matched the model. No code reads this row; an approved persist_fit --kind nonbank writes it again."
+    }
+  }
+}

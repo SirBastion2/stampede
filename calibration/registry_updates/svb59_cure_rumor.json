@@ -1,0 +1,51 @@
+{
+  "updates": {
+    "M03 cure rumor enabled": {
+      "Value": "false"
+    },
+    "M03 cure attention cut": {
+      "Value": "0.5"
+    },
+    "M06 cure rumor worry shift enabled": {
+      "Value": "false"
+    },
+    "M06 cure rumor worry factor": {
+      "Value": "0.5"
+    },
+    "M29 live cure rumor": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M03 cure rumor enabled": {
+      "Status": "ASSUMED",
+      "Module": "M03",
+      "Unit": "bool",
+      "Source": "SVB-59 ADR-105 flag, default off (ADR-001 exception): on, a RumorPosted whose claim has positive lexicon tone is not spread; it scales the bank's node attention by 1 - M03 cure attention cut x credibility."
+    },
+    "M03 cure attention cut": {
+      "Status": "ASSUMED",
+      "Module": "M03",
+      "Unit": "fraction",
+      "Source": "SVB-59 ADR-105 placeholder: a cure is weaker than a panic rumor (reassurance mostly failed: Credit Suisse Oct 2022, SVB Mar 2023), so a credibility-0.9 cure removes 45% of current attention."
+    },
+    "M06 cure rumor worry shift enabled": {
+      "Status": "ASSUMED",
+      "Module": "M06",
+      "Unit": "bool",
+      "Source": "SVB-59 ADR-105 flag, default off: on, a positive-tone RumorPosted applies the statement worry shifts scaled by M06 cure rumor worry factor x credibility; no redeposit."
+    },
+    "M06 cure rumor worry factor": {
+      "Status": "ASSUMED",
+      "Module": "M06",
+      "Unit": "multiplier",
+      "Source": "SVB-59 ADR-105 placeholder: half the M06 statement shifts at credibility 1 (cure weaker than an official statement)."
+    },
+    "M29 live cure rumor": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "SVB-59 ADR-105: the live server's real-mode engine turns on both cure flags (Nov 3 design: any role may post a cure, effect scales with credibility, weaker than a panic rumor, no redeposit, price only through fewer withdrawals)."
+    }
+  }
+}

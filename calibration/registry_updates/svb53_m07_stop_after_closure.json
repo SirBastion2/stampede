@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M07 stop settlement after closure": {
+      "Value": "false"
+    }
+  },
+  "append": {
+    "M07 stop settlement after closure": {
+      "Status": "ASSUMED",
+      "Source": "SVB-53 (D4) ADR-100 flag, default off (off = logs byte-identical to bc4c1c2). On: M07 publishes no PaymentSettled after this bank's BankClosed and freezes its queues. Reason: once a regulator closes a bank, payments stop until a receiver or bridge bank reopens (SVB closed Fri Mar 10 2023; the FDIC bridge bank opened Mon Mar 13). Can move settled numbers after a closure, so it stays off for calibration.",
+      "Module": "M07",
+      "Unit": "bool"
+    }
+  }
+}

@@ -1,0 +1,241 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  --bg-deep: #100e0c;
+  --card: rgba(22, 18, 20, 0.58);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text: #f4f1ee;
+  --muted: #a8a29e;
+  --ok: #3ecf8e;
+  --bad: #ef6b6b;
+  --salmon: #f0a09a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(ellipse 55% 48% at 72% 28%, rgba(168, 96, 52, 0.28), transparent 62%),
+    radial-gradient(ellipse 42% 36% at 22% 70%, rgba(92, 48, 36, 0.32), transparent 64%),
+    linear-gradient(180deg, rgba(18, 14, 12, 0.2), rgba(8, 8, 10, 0.78));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.monitor-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.85rem 1.15rem 1.5rem;
+}
+
+.monitor-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.monitor-header h1 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.ticker-lockup {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--salmon);
+  font-weight: 600;
+}
+
+.ticker {
+  letter-spacing: 0.04em;
+  color: var(--salmon);
+}
+
+.ticker-price {
+  font-size: 1.02rem;
+}
+
+.ticker-change {
+  font-size: 0.95rem;
+}
+
+.ticker-change.down {
+  color: var(--salmon);
+}
+
+.ticker-change.up {
+  color: var(--ok);
+}
+
+.connecting,
+.feed-error {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.feed-error {
+  color: var(--bad);
+}
+
+.market-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+
+.panel {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 0.8rem 0.95rem;
+  background: var(--card);
+  backdrop-filter: blur(12px);
+}
+
+.panel h2 {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e7e5e4;
+}
+
+.chart-panel {
+  padding: 0.45rem 0.55rem 0.35rem;
+}
+
+.marker-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.25rem;
+  padding: 0;
+  list-style: none;
+  color: #e7e5e4;
+  font-size: 0.75rem;
+}
+
+.price-canvas {
+  width: 100%;
+  height: 210px;
+  display: block;
+}
+
+.depth-combo {
+  display: flex;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(40, 24, 24, 0.45);
+}
+
+.depth-buy {
+  background: #3ecf8e;
+}
+
+.depth-sell {
+  background: #ef4444;
+}
+
+.depth-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+}
+
+.buy-label {
+  color: var(--ok);
+}
+
+.sell-label {
+  color: var(--bad);
+}
+
+.statement-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.statement-row {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr auto;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.48rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 0.86rem;
+}
+
+.statement-hero {
+  background: rgba(22, 120, 64, 0.72);
+  border-color: rgba(62, 207, 142, 0.35);
+}
+
+.statement-neutral {
+  background: rgba(12, 14, 16, 0.45);
+  border-color: rgba(180, 190, 186, 0.22);
+}
+
+.statement-rejected {
+  background: rgba(140, 36, 40, 0.72);
+  border-color: rgba(239, 107, 107, 0.35);
+}
+
+.verdict-icon {
+  font-weight: 700;
+  text-align: center;
+}
+
+.statement-hero .verdict-icon,
+.statement-neutral .verdict-icon {
+  color: #bbf7d0;
+}
+
+.statement-rejected .verdict-icon {
+  color: #fecaca;
+}
+
+.stmt-title {
+  font-weight: 500;
+}
+
+.stmt-impact {
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.statement-hero .stmt-impact,
+.statement-neutral .stmt-impact {
+  color: #bbf7d0;
+}
+
+.statement-rejected .stmt-impact {
+  color: #fecaca;
+}
+
+.halt-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--bad);
+  border-radius: 8px;
+  background: rgba(127, 29, 29, 0.28);
+  font-size: 0.875rem;
+}

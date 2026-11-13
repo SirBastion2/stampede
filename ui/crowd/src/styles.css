@@ -1,0 +1,481 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  --bg-deep: #100e0c;
+  --card: rgba(22, 18, 20, 0.58);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text: #f4f1ee;
+  --muted: #a8a29e;
+  --accent-red: #f0a09a;
+  --accent-green: #3ecf8e;
+  --accent-grey: #b7bdc7;
+  --danger: #e06a6a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(ellipse 55% 48% at 72% 28%, rgba(168, 96, 52, 0.28), transparent 62%),
+    radial-gradient(ellipse 42% 36% at 22% 70%, rgba(92, 48, 36, 0.32), transparent 64%),
+    linear-gradient(180deg, rgba(18, 14, 12, 0.2), rgba(8, 8, 10, 0.78));
+}
+
+.monitor-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.85rem 1.15rem 1.4rem;
+}
+
+.monitor-header {
+  margin-bottom: 0.65rem;
+}
+
+.monitor-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.monitor-title-row h1 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.bank-badge {
+  font-size: 0.72rem;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: rgba(20, 16, 18, 0.45);
+  color: #d6d3d1;
+}
+
+.phase-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.phase-pill {
+  font-size: 0.72rem;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 16, 18, 0.4);
+  color: #c4bfba;
+}
+
+.phase-pill-active {
+  border-color: rgba(224, 106, 106, 0.55);
+  background: rgba(120, 36, 40, 0.72);
+  color: #fecaca;
+}
+
+.card,
+.panel {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--card);
+  backdrop-filter: blur(12px);
+}
+
+.crowd-stage {
+  display: flex;
+  flex-direction: column;
+  height: 360px;
+  overflow: hidden;
+}
+
+.crowd-canvas-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.crowd-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.crowd-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  padding: 0.45rem 0.9rem 0.7rem;
+  font-size: 0.75rem;
+  color: #d6d3d1;
+}
+
+.crowd-legend .leg {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  vertical-align: middle;
+}
+
+.crowd-legend .calm {
+  background: var(--accent-green);
+}
+
+.crowd-legend .wavering {
+  background: var(--accent-grey);
+}
+
+.crowd-legend .withdrew {
+  background: #ef6b6b;
+}
+
+.leg-note {
+  color: #d6d3d1;
+}
+
+.side-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.7rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.panel {
+  padding: 0.75rem 0.9rem 0.8rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--accent-red);
+  letter-spacing: -0.02em;
+}
+
+.trend-down {
+  color: var(--accent-red);
+  font-size: 1.15rem;
+}
+
+.stat-sub {
+  margin: 0.28rem 0 0;
+  font-size: 0.78rem;
+}
+
+.stat-sub-warn {
+  color: #f0b4ae;
+}
+
+.gauge-track {
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(90, 36, 36, 0.45);
+  overflow: hidden;
+  margin-top: 0.7rem;
+}
+
+.gauge-track-danger .gauge-fill {
+  background: #e15d5d;
+}
+
+.gauge-fill {
+  height: 100%;
+}
+
+.rumor-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.rumor-quote {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #f8f5f2;
+}
+
+.rumor-placeholder {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.poster-chip {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 24, 26, 0.55);
+  color: #e7e5e4;
+  white-space: nowrap;
+}
+
+.rumor-edit {
+  margin-top: 0.15rem;
+}
+
+.rumor-box {
+  position: relative;
+}
+
+.rumor-edit summary {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rumor-edit summary::-webkit-details-marker {
+  display: none;
+}
+
+.rumor-box textarea,
+.rumor-box select {
+  width: 100%;
+  margin-top: 0.35rem;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: rgba(8, 8, 10, 0.55);
+  color: inherit;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.rumor-box textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+
+.field-label,
+.status-line {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+
+.rumor-box button {
+  margin-top: 0.45rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .stat-row,
+  .rumor-row {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.playback-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+}
+
+.playback-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-right: 0.25rem;
+}
+
+.playback-btn {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  background: rgba(15, 23, 42, 0.65);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.playback-btn-active {
+  border-color: rgba(248, 113, 113, 0.55);
+  color: #fecaca;
+}
+
+.playback-btn-skip {
+  margin-left: 0.5rem;
+}
+
+.demo-hook {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #e7e5e4;
+  max-width: 42rem;
+}
+
+.reconnect-banner {
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(240, 176, 160, 0.45);
+  background: rgba(80, 32, 28, 0.72);
+  color: #fee2e2;
+  font-size: 0.875rem;
+}
+
+.rumor-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: #e7e5e4;
+}
+
+.rumor-compose {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rumor-compose input {
+  flex: 1 1 16rem;
+  min-width: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(8, 8, 10, 0.55);
+  color: #f8f5f2;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.post-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(120, 36, 40, 0.72);
+  color: #fee2e2;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.poster-select {
+  width: auto;
+  margin-top: 0;
+  color: #f4f1ee;
+}
+
+.rumor-interpretation {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted, #6b7280);
+}
+
+.rumor-error {
+  margin: 0.5rem 0 0;
+  color: #fecaca;
+  font-size: 0.875rem;
+}
+
+.rumor-quote {
+  overflow-wrap: anywhere;
+  max-height: 6.5rem;
+  overflow: auto;
+}
+
+.stat-value-steady {
+  color: #f4f1ee;
+}
+
+.stat-value-down {
+  color: var(--accent-red);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.demo-foot {
+  margin-top: 1rem;
+  color: #e7e5e4;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.demo-foot p {
+  margin: 0 0 0.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid #f8f5f2;
+  outline-offset: 2px;
+}
+
+html[data-motion="reduce"] * {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="full"]) * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.crowd-legend .withdrew {
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  background: transparent;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 9px solid #ef6b6b;
+}
+
+.crowd-legend .wavering {
+  border-radius: 2px;
+}

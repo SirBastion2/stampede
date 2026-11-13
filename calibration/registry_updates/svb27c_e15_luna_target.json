@@ -1,0 +1,9 @@
+{
+  "updates": {
+    "Non-bank E15 LUNA peak-to-trough fraction": {
+      "Value": "0.9999996",
+      "Status": "SOURCED",
+      "Source": "Derived from two VERIFIED rows: April 5 2022 peak 119.18 USD (NBER w31160) and May 13 2022 price below 0.00005 USD (arxiv 2207.13914). 1 - 0.00005/119.18 = 0.9999996. The trough was at or below 0.00005, so the true fraction is at least this. Days to bottom stays UNSET: the cited windows disagree (3 days versus May 5 to 13)."
+    }
+  }
+}

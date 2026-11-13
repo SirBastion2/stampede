@@ -1,0 +1,14 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+  - repo: local
+    hooks:
+      - id: make-ci-quick
+        name: stampede quick checks (ruff via make lint)
+        entry: make lint
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

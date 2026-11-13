@@ -1,0 +1,33 @@
+{
+  "updates": {
+    "M20 HTM bonds fair value fraction of deposits": {
+      "Value": "0.435429"
+    },
+    "M20 discount window margin on pledged bonds": {
+      "Value": "0.95"
+    },
+    "M20 deposits from big banks fraction of deposits": {
+      "Value": "0.171429"
+    }
+  },
+  "append": {
+    "M20 HTM bonds fair value fraction of deposits": {
+      "Status": "SOURCED",
+      "Module": "M20",
+      "Unit": "fraction",
+      "Source": "UF-2: SVB Financial Group 10-K FY2022: held-to-maturity securities at fair value $76.2B (amortized cost $91.3B), over the registry's $175B deposits. With the AFS row, the bonds' market value is $102.3B."
+    },
+    "M20 discount window margin on pledged bonds": {
+      "Status": "ASSUMED",
+      "Module": "M20",
+      "Unit": "fraction",
+      "Source": "UF-2: the Fed lends a margin times the fair market value of pledged securities (frbdiscountwindow.org collateral valuation); its margins table lists about 94-97% for Treasury and agency securities, a single blend is assumed. Bonds pledged in advance then let the bank pay about 65.3% of deposits."
+    },
+    "M20 deposits from big banks fraction of deposits": {
+      "Status": "SOURCED",
+      "Module": "M20",
+      "Unit": "fraction",
+      "Source": "UF-2: on Mar 16 2023, 11 of the largest US banks announced $30B of uninsured deposits into First Republic (Bank of America, Citigroup, JPMorgan Chase and Wells Fargo $5B each; Goldman Sachs and Morgan Stanley $2.5B each; five others $1B each), with the Treasury, Fed, FDIC and OCC welcoming it. $30B over the registry's $175B deposits. First Republic still failed on May 1."
+    }
+  }
+}

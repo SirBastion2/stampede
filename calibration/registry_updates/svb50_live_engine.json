@@ -1,0 +1,24 @@
+{
+  "updates": {
+    "M29 live engine modules": {
+      "Value": "M02,M03,M05,M06,M07,M08,M09,M14"
+    },
+    "M29 live crowd wavering worry threshold": {
+      "Value": "0.5"
+    }
+  },
+  "append": {
+    "M29 live engine modules": {
+      "Status": "ASSUMED",
+      "Source": "SVB-50 ADR-098: with STAMPEDE_MODE=real the live server runs the calibrated module set (calibration.fit real_calibration_modes: M02,M03,M05,M06,M07,M08,M09) plus the M14 order book for the price; every other module stays fake",
+      "Module": "M29",
+      "Unit": "module ids"
+    },
+    "M29 live crowd wavering worry threshold": {
+      "Status": "ASSUMED",
+      "Source": "SVB-50 ADR-098: a depositor who has not withdrawn shows as wavering when M06 worry (a probability) is at least this; 0.5 = more likely worried than not",
+      "Module": "M29",
+      "Unit": "probability"
+    }
+  }
+}

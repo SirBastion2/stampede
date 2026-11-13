@@ -1,0 +1,33 @@
+{
+  "updates": {
+    "M20 bonds sellable near book value fraction of deposits": {
+      "Value": "0.148966"
+    },
+    "M20 closes on what the bank can pay": {
+      "Value": "false"
+    },
+    "M29 live regulator closes on what the bank can pay": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M20 bonds sellable near book value fraction of deposits": {
+      "Status": "SOURCED",
+      "Module": "M20",
+      "Unit": "fraction",
+      "Source": "UF-1: SVB Financial Group 10-K FY2022: available-for-sale securities at fair value $26.069B, over the registry's $175B deposits. AFS bonds are already carried at fair value, so selling them loses little more; selling the HTM bonds ($91.3B at amortized cost, $76.2B fair value) would lock in a $15.1B loss against $16.3B of equity. With M08's cash and the 2023 borrowing rungs, the bank can pay about 25.5% of deposits."
+    },
+    "M20 closes on what the bank can pay": {
+      "Status": "ASSUMED",
+      "Module": "M20",
+      "Unit": "bool",
+      "Source": "UF-1 ADR-128 flag, default off: off, M20 closes on negative cash in its 0.1% slice with no bonds left in its 0.4% slice (about $0.7B of sales). On, it closes a bank whose depositors have asked for more than it can pay (engine/system/can_pay.py: cash + 2023 borrowing + bonds sellable near book value; with the Fed's 2023 program on in time, every bond at face value), the same rule the usefulness ranking uses."
+    },
+    "M29 live regulator closes on what the bank can pay": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "UF-1 ADR-128 (Sebastian, Nov 5): the live server's real-mode engine turns on M20 closes on what the bank can pay, so a plan run live from the wall has the outcome the wall shows. Calibration and seeded runs never open the live context."
+    }
+  }
+}

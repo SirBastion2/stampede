@@ -1,0 +1,15 @@
+{
+  "updates": {
+    "M29 live price paced to SVB day-one drop": {
+      "Value": "true"
+    }
+  },
+  "append": {
+    "M29 live price paced to SVB day-one drop": {
+      "Status": "ASSUMED",
+      "Module": "M29",
+      "Unit": "bool",
+      "Source": "SVB-63 ADR-108 (Sebastian, Nov 3): live real mode shows price = opening x (1 - (1 - Calibration E1 day-1 stock target) x min(1, requested / Calibration E1 requested day-one target)), so at SVB's day-one requests (0.249) the price is down SVB's day-one 60% (0.40 close/open, Mar 9 2023). Paced to the engine's run, not a calibrated market model; /health reports it. The M14 order book still runs; depositors do not read either price (SVB-58)."
+    }
+  }
+}

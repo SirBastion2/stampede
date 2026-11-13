@@ -1,0 +1,58 @@
+[project]
+name = "stampede"
+version = "0.1.0"
+description = "STAMPEDE: GPU-accelerated agent-based bank-run simulator calibrated to the 2023 SVB run"
+authors = [{ name = "Sebastian Villalba" }]
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6,<3",
+    "numpy>=2.0,<3",
+    "scipy>=1.11,<2",
+    "numba>=0.60",
+    "msgpack>=1.0,<2",
+    "pyarrow>=15.0",
+    "cma>=3.3,<5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "hypothesis>=6.98",
+    "ruff>=0.3",
+    "mypy>=1.8",
+    "httpx>=0.27",
+]
+server = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "msgpack>=1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "contracts/tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["UP042"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["contracts", "engine", "mocks", "ops"]
+exclude = ["contracts/tests/"]
+
+[[tool.mypy.overrides]]
+module = ["numba", "numba.*", "cupy", "cupy.*", "cupyx", "cupyx.*", "pyarrow", "pyarrow.*", "xai_sdk", "xai_sdk.*"]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["agents*", "contracts*", "engine*", "mocks*", "ops*", "params*", "scenarios*", "ui*"]

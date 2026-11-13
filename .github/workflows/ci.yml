@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  cpu-tests:
+    name: CPU tests
+    runs-on: ubuntu-latest
+    env:
+      STAMPEDE_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: make setup
+      - name: Lint (informational)
+        continue-on-error: true
+        run: make lint
+      - name: Unit and contract tests
+        run: python3 -m pytest -q
+      - name: Determinism smoke
+        run: make determinism-smoke
