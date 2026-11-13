@@ -4,7 +4,6 @@ STAMPEDE is a GPU agent-based simulator of bank runs. You inject a rumor or a sh
 
 It is calibrated to Silicon Valley Bank's March 2023 run and checked, without refitting, against Signature Bank's run the next day. It is a stress-testing and teaching tool, not a forecasting product. Results are reported as distributions over seeded runs (failure rates, time-of-failure windows), never as a single prediction.
 
-Personal project by **Sebastian Villalba** ([@SirBastion2](https://github.com/SirBastion2)).
 
 ---
 
