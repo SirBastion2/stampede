@@ -1,6 +1,7 @@
 [project]
 name = "stampede"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 version = "0.1.0"
 description = "STAMPEDE: GPU-accelerated agent-based bank-run simulator calibrated to the 2023 SVB run"
 authors = [{ name = "Sebastian Villalba" }]
@@ -52,7 +53,7 @@ module = ["numba", "numba.*", "cupy", "cupy.*", "cupyx", "cupyx.*", "pyarrow", "
 ignore_missing_imports = true
 
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
